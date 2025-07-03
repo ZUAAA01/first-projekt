@@ -1,0 +1,183 @@
+/* 🔤 Fonts & Grundfarben */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Playfair Display', Arial, sans-serif;
+  background-color: #000;
+  color: #eee;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Optional für später */
+section {
+  padding: 6rem 2rem;
+}
+/* Links */
+a {
+    color: #8ecae6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover,
+a:focus {
+    color: #219ebc;
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    font-family: inherit;
+    background: #219ebc;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+button:hover,
+button:focus {
+    background: #126782;
+}
+
+/* Responsive Typography */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    section {
+        padding: 3rem 1rem;
+    }
+}
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 0 2rem;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+  top: -300px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(120px);
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-text h1 em {
+  font-style: italic;
+  font-weight: 600;
+  display: block;
+}
+
+.hero-text h1 strong {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  display: block;
+}
+
+.hero-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #ccc;
+  max-width: 600px;
+}
+
+.hero-text .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.hero-text .logo img {
+  height: 160px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(1) contrast(1.2);
+}
+
+.logo img {
+  height: 150px; /* Logo deutlich größer */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(1) contrast(1.2);
+}
+
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 170px; /* Optional: Header-Höhe anpassen */
+  background: transparent;
+  box-shadow: none;
+  margin-top: 40px; /* Header weiter nach unten */
+}
+#darkmode-toggle {
+  margin-left: 2rem;
+  background: none;
+  border: 1px solid #555;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  color: #ccc;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#darkmode-toggle:hover {
+  color: #fff;
+  border-color: #999;
+}
+
+body.lightmode {
+  background-color: #fff;
+  color: #111;
+}
+
+body.lightmode .main-header {
+  background-color: rgba(255,255,255,0.9);
+}
+
+body.lightmode a,
+body.lightmode .main-nav a {
+  color: #333;
+}
+
+body.lightmode #darkmode-toggle {
+  border-color: #999;
+  color: #333;
+}
+
