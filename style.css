@@ -312,3 +312,71 @@ button:focus {
   text-align: center;
 }
 
+/* === GLOBAL STYLES === */
+:root {
+  --bg-dark: #0B0E11;
+  --bg-light: #E9EFF2;
+  --accent-green: #9CAF77;
+  --accent-blue: #C5D8E4;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A8A8A8;
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Space Grotesk', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+}
+
+/* === HERO SECTION === */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(145deg, #0B0E11, #202528);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-family: var(--font-secondary);
+}
+
+/* === BUTTON STYLE === */
+.btn {
+  margin-top: 2rem;
+  padding: 0.8rem 2.2rem;
+  border: 1px solid var(--text-primary);
+  background-color: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-green);
+  color: #000;
+}
+
