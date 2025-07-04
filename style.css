@@ -138,35 +138,6 @@ button:focus {
   color: #ccc;
 }
 
-/* === HERO SECTION === */
-.hero {
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  background: #000;
-  color: white;
-  text-align: center;
-}
-
-.hero-content {
-  max-width: 800px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  font-family: 'Playfair Display', serif;
-}
-
-.hero p {
-  font-size: 1.25rem;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-}
-
 /* === WERTE SECTION === */
 .werte-section {
   padding: 6rem 2rem;
@@ -337,15 +308,28 @@ body {
   overflow-x: hidden;
 }
 
-/* === HERO SECTION === */
 .hero {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: linear-gradient(145deg, #0B0E11, #202528);
+  background: url('IMG_5170.jpg') no-repeat center center / cover;
   text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* 30% Overlay für bessere Lesbarkeit */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -361,7 +345,6 @@ body {
   font-family: var(--font-secondary);
 }
 
-/* === BUTTON STYLE === */
 .btn {
   margin-top: 2rem;
   padding: 0.8rem 2.2rem;
