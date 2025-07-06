@@ -327,6 +327,7 @@ button:focus {
     min-height: 100vh;
     padding: 4rem 1rem;
     justify-content: center;
+    background-attachment: scroll; /* Fix für Mobile Hintergrund */
   }
   
   .about-container {
@@ -337,6 +338,7 @@ button:focus {
     min-height: 100vh;
     padding: 4rem 1rem;
     gap: 2rem;
+    background-attachment: scroll; /* Fix für Mobile Hintergrund */
   }
 
   .project-card {
@@ -346,6 +348,72 @@ button:focus {
 
   .project-card h2 {
     font-size: 1.5rem;
+  }
+
+  /* Mobile Navigation Fix */
+  .nav-header {
+    padding: 1rem 0;
+  }
+  
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  /* Mobile Hero Fix */
+  .hero {
+    padding: 1rem;
+    min-height: 100vh;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Mobile Project Cards Fix */
+  .project-card {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 2rem 1rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .projects-text-only {
+    padding: 4rem 0;
+  }
+
+  /* Mobile CTA Fix */
+  .cta {
+    margin: 60px 1rem 60px;
+    padding: 60px 2rem;
+    max-width: none;
+  }
+  
+  .cta-line {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+  
+  .contact-hidden, .contact-visible {
+    font-size: 1rem;
+    margin-top: 1.5rem;
   }
 }
 
