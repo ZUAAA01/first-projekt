@@ -478,3 +478,28 @@ body {
   color: #000;
 }
 
+/* Kontakt Animation */
+.contact-hidden {
+  display: none;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: #ccc;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.contact-visible {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
