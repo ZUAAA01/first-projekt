@@ -159,9 +159,9 @@ button:focus {
   color: #eee;
 }
 
-.about-content h1 {
+.about-content h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
   color: white;
 }
@@ -296,7 +296,7 @@ button:focus {
   background-size: cover;
   background-attachment: fixed;
   overflow: visible;
-  padding: 6rem 0 0 0;
+  padding: 8rem 0 4rem 0;
   gap: 0;
 }
 
@@ -325,61 +325,172 @@ button:focus {
   font-size: 2.5rem;
   color: white;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  letter-spacing: -1px;
+}
+
+.projects-container {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin: 0 auto 2rem auto;
+  perspective: 1000px;
 }
 
 .project-card {
   position: relative;
-  z-index: 2;
-  width: 100vw;
-  text-align: left;
-  padding: 4rem 6rem;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(40, 40, 40, 0.6));
-  border: none;
-  border-radius: 0;
-  margin-bottom: 0;
-  transition: all 0.4s ease;
-  border-left: 4px solid transparent;
-  border-right: none;
-  backdrop-filter: blur(10px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.08));
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 3.5rem 3rem;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* === ERWEITERTE PROJECT ANIMATIONS === */
+/* Floating Animation für Cards */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.project-card:nth-child(1) {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.project-card:nth-child(2) {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.project-card:nth-child(3) {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* Hover-Effekt pausiert die Float-Animation */
+.project-card:hover {
+  animation-play-state: paused;
+}
+
+/* Glossy Overlay Effekt */
+.project-card .glossy-overlay {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.8s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .glossy-overlay {
+  left: 100%;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
 }
 
 .project-card:hover {
-  background: linear-gradient(135deg, rgba(40, 40, 40, 0.9), rgba(60, 60, 60, 0.7));
-  border-left: 4px solid #9CAF77;
-  transform: translateX(10px);
+  transform: translateY(-12px) rotateX(2deg);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.12));
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover::after {
+  opacity: 1;
 }
 
 /* iPhone/Mobile Project Cards Fix */
 @media (max-width: 768px) {
+  .projects-container {
+    max-width: 100% !important;
+    gap: 2rem !important;
+    padding: 0 2rem !important;
+    perspective: none !important;
+  }
+  
   .project-card {
-    width: 100% !important;
-    padding: 3rem 2rem !important;
-    margin-bottom: 0 !important;
+    padding: 2.5rem 2rem !important;
     text-align: center !important;
-    border-left: none !important;
-    border-right: none !important;
+    border-radius: 16px !important;
+    animation: none !important;
+    max-width: 100% !important;
+  }
+  
+  .project-card h3 {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+  }
+  
+  .project-card h3::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 40px !important;
   }
   
   .project-card:hover {
-    transform: none !important;
-    border-left: none !important;
+    transform: translateY(-6px) !important;
   }
   
-  .project-card h2 {
-    font-size: 1.6rem !important;
+  .project-card:hover h3 {
+    transform: translateY(-2px) !important;
   }
   
-  .project-card h2::after {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+  .project-card:hover .project-role {
+    transform: translateY(-2px) !important;
   }
   
   .project-role {
-    display: block !important;
     text-align: center !important;
-    margin: 0 auto !important;
-    width: fit-content !important;
+    font-style: normal !important;
   }
 }
 
@@ -389,46 +500,96 @@ button:focus {
 
 /* Entfernt - wird durch neue Hover-Effekte ersetzt */
 
-.project-card h2 {
+.project-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   color: white;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   font-weight: 400;
   position: relative;
+  letter-spacing: -0.8px;
+  transition: all 0.4s ease;
 }
 
-.project-card h2::after {
+.project-card h3::after {
   content: "";
   position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 60px;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #9CAF77, transparent);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+  border-radius: 1px;
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card:hover h3::after {
+  width: 60px;
+}
+
+.project-card:hover h3 {
+  transform: translateY(-2px);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .project-card p {
   font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #ddd;
-  margin-bottom: 2rem;
-  max-width: 800px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  transition: all 0.4s ease;
+}
+
+.project-card:hover p {
+  color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.project-card p strong {
+  color: white;
+  font-weight: 500;
+  position: relative;
+}
+
+.project-card p strong::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover p strong::after {
+  opacity: 1;
 }
 
 .project-role {
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  color: #9CAF77;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   opacity: 1;
-  display: inline-block;
-  background: rgba(156, 175, 119, 0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  border: 1px solid rgba(156, 175, 119, 0.3);
+  display: block;
+  margin-top: 1.5rem;
+  padding: 1rem 0 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: all 0.4s ease;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.project-card:hover .project-role {
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
 }
 
 /* Mobile Anpassung - ÜBERARBEITET FÜR iPHONE */
@@ -449,7 +610,7 @@ button:focus {
     margin: 0 auto !important;
   }
   
-  .about-content h1 {
+  .about-content h2 {
     font-size: 2rem !important;
   }
 
@@ -464,16 +625,22 @@ button:focus {
     padding: 0 2rem !important;
   }
 
+  .projects-container {
+    max-width: 100% !important;
+    gap: 1.5rem !important;
+    padding: 0 2rem !important;
+  }
+
   .project-card {
-    width: 100% !important;
     padding: 2.5rem 2rem !important;
     margin-bottom: 0 !important;
     border-left: none !important;
     border-right: none !important;
     text-align: center !important;
+    max-width: 100% !important;
   }
 
-  .project-card h2 {
+  .project-card h3 {
     font-size: 1.4rem !important;
   }
 }
@@ -621,7 +788,7 @@ button:focus {
     margin: 0 auto !important;
   }
   
-  .about-content h1 {
+  .about-content h2 {
     font-size: 1.8rem !important;
     margin-bottom: 1rem !important;
   }
@@ -640,26 +807,32 @@ button:focus {
   
   .projects-title {
     font-size: 1.8rem !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 3rem !important;
     padding: 0 2rem !important;
   }
   
-  .project-card {
-    width: 100% !important;
-    padding: 2rem 2rem !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
+  .projects-container {
+    padding: 0 1.5rem !important;
+    gap: 1.5rem !important;
+    max-width: 100% !important;
   }
   
-  .project-card h2 {
+  .project-card {
+    padding: 2rem 1.5rem !important;
+    text-align: center !important;
+    border-radius: 12px !important;
+    max-width: 100% !important;
+  }
+  
+  .project-card h3 {
     font-size: 1.3rem !important;
     margin-bottom: 1rem !important;
   }
   
-  .project-card h2::after {
+  .project-card h3::after {
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 40px !important;
+    width: 30px !important;
   }
   
   .project-card p {
@@ -671,7 +844,9 @@ button:focus {
   
   .project-role {
     font-size: 0.85rem !important;
-    padding: 0.4rem 0.8rem !important;
+    padding: 0.8rem 0 0 0 !important;
+    text-align: center !important;
+    font-style: normal !important;
   }
 
   /* iPhone CTA */
@@ -743,15 +918,19 @@ button:focus {
     max-width: 80% !important;
   }
   
-  .about-content h1, .projects-title {
+  .about-content h2, .projects-title {
     font-size: 1.6rem !important;
+  }
+  
+  .projects-container {
+    padding: 0 1rem !important;
   }
   
   .project-card {
     padding: 1.5rem 1.5rem !important;
   }
   
-  .project-card h2 {
+  .project-card h3 {
     font-size: 1.1rem !important;
   }
   
@@ -774,7 +953,7 @@ button:focus {
 
 /* === CTA KÄSTCHEN (innerhalb Projects Section) === */
 .cta {
-  background-color: #0e0e0e;
+  background-color: #000000;
   padding: 10rem 6rem 10rem 6rem;
   text-align: center;
   border-radius: 0;
@@ -851,7 +1030,7 @@ button:focus {
 /* === ABSCHLUSS SECTION === */
 .abschluss {
   min-height: 20vh; /* kleinere Höhe */
-  background-color: #000000; /* noch tieferes Schwarz */
+  background-color: #010101; /* schwarz */
   z-index: 10;
   position: relative;
   display: flex;
