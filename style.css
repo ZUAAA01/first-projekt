@@ -132,10 +132,10 @@ button:focus {
 /* iPhone/Mobile Background Fix */
 @media (max-width: 768px) {
   .about {
-    background-attachment: scroll !important;
+    background-attachment: fixed !important;
     background-position: center center !important;
     min-height: auto !important;
-    padding: 3rem 1rem !important;
+    padding: 3rem 2rem !important;
   }
 }
 
@@ -303,7 +303,7 @@ button:focus {
 /* iPhone/Mobile Background Fix */
 @media (max-width: 768px) {
   .projects-text-only {
-    background-attachment: scroll !important;
+    background-attachment: fixed !important;
     background-position: center center !important;
     min-height: auto !important;
     padding: 3rem 0 0 0 !important;
@@ -440,12 +440,13 @@ button:focus {
   
   .about {
     min-height: auto !important;
-    padding: 3rem 1rem !important;
-    background-attachment: scroll !important;
+    padding: 3rem 2rem !important;
+    background-attachment: fixed !important;
   }
   
   .about-container {
-    max-width: 100% !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
   }
   
   .about-content h1 {
@@ -455,17 +456,17 @@ button:focus {
   .projects-text-only {
     min-height: auto !important;
     padding: 3rem 0 0 0 !important;
-    background-attachment: scroll !important;
+    background-attachment: fixed !important;
   }
   
   .projects-title {
     font-size: 2rem !important;
-    padding: 0 1rem !important;
+    padding: 0 2rem !important;
   }
 
   .project-card {
     width: 100% !important;
-    padding: 2.5rem 1.5rem !important;
+    padding: 2.5rem 2rem !important;
     margin-bottom: 0 !important;
     border-left: none !important;
     border-right: none !important;
@@ -492,8 +493,13 @@ button:focus {
 
   /* Mobile Hero Fix */
   .hero {
-    padding: 1rem;
+    padding: 1rem 2rem;
     min-height: 100vh;
+  }
+  
+  .hero-content {
+    max-width: 90%;
+    margin: 0 auto;
   }
   
   .hero h3 {
@@ -531,7 +537,7 @@ button:focus {
     margin: 0 !important;
     margin-left: calc(-50vw + 50%) !important;
     margin-right: calc(-50vw + 50%) !important;
-    padding: 6rem 2rem 6rem 2rem !important;
+    padding: 6rem 3rem 6rem 3rem !important;
     max-width: none !important;
     width: 100vw !important;
     border-radius: 0 !important;
@@ -541,6 +547,8 @@ button:focus {
   .cta-line {
     font-size: 1rem;
     line-height: 1.5;
+    max-width: 85%;
+    margin: 0 auto 2rem auto;
   }
   
   .cta-button {
@@ -551,6 +559,9 @@ button:focus {
 .contact-hidden, .contact-visible {
   font-size: 1rem;
   margin-top: 1.5rem;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* === SPEZIELLE iPHONE OPTIMIERUNG === */
@@ -573,8 +584,13 @@ button:focus {
   /* iPhone Hero */
   .hero {
     height: 100vh !important;
-    padding: 1rem !important;
-    background-attachment: scroll !important;
+    padding: 1rem 2rem !important;
+    background-attachment: fixed !important;
+  }
+  
+  .hero-content {
+    max-width: 85% !important;
+    margin: 0 auto !important;
   }
   
   .hero h3 {
@@ -595,8 +611,14 @@ button:focus {
 
   /* iPhone About */
   .about {
-    padding: 2rem 1rem !important;
+    padding: 2rem 2rem !important;
     min-height: auto !important;
+    background-attachment: fixed !important;
+  }
+  
+  .about-container {
+    max-width: 85% !important;
+    margin: 0 auto !important;
   }
   
   .about-content h1 {
@@ -613,17 +635,18 @@ button:focus {
   /* iPhone Projects */
   .projects-text-only {
     padding: 2rem 0 0 0 !important;
+    background-attachment: fixed !important;
   }
   
   .projects-title {
     font-size: 1.8rem !important;
     margin-bottom: 1.5rem !important;
-    padding: 0 1rem !important;
+    padding: 0 2rem !important;
   }
   
   .project-card {
     width: 100% !important;
-    padding: 2rem 1rem !important;
+    padding: 2rem 2rem !important;
     margin-bottom: 0 !important;
     text-align: center !important;
   }
@@ -642,6 +665,8 @@ button:focus {
   .project-card p {
     font-size: 0.9rem !important;
     line-height: 1.6 !important;
+    max-width: 90% !important;
+    margin: 0 auto 2rem auto !important;
   }
   
   .project-role {
@@ -654,7 +679,7 @@ button:focus {
     margin: 0 !important;
     margin-left: calc(-50vw + 50%) !important;
     margin-right: calc(-50vw + 50%) !important;
-    padding: 5rem 1.5rem 5rem 1.5rem !important;
+    padding: 5rem 2rem 5rem 2rem !important;
     border-radius: 0 !important;
     max-width: none !important;
     width: 100vw !important;
@@ -665,6 +690,9 @@ button:focus {
     font-size: 0.95rem !important;
     line-height: 1.4 !important;
     margin-bottom: 1.5rem !important;
+    max-width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   
   .cta-button {
@@ -675,6 +703,9 @@ button:focus {
   .contact-hidden, .contact-visible {
     font-size: 0.9rem !important;
     margin-top: 1rem !important;
+    max-width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
@@ -682,7 +713,9 @@ button:focus {
 @supports (-webkit-touch-callout: none) {
   /* iOS Safari spezifische Fixes */
   .hero, .about, .projects-text-only {
-    background-attachment: scroll !important;
+    background-attachment: fixed !important;
+    -webkit-background-size: cover !important;
+    background-size: cover !important;
   }
   
   /* iOS Viewport Fix */
@@ -694,6 +727,10 @@ button:focus {
 
 /* iPhone SE und kleinere Geräte */
 @media only screen and (max-width: 375px) {
+  .hero-content {
+    max-width: 80% !important;
+  }
+  
   .hero h3 {
     font-size: 0.8rem !important;
   }
@@ -702,12 +739,32 @@ button:focus {
     font-size: 1.4rem !important;
   }
   
+  .about-container {
+    max-width: 80% !important;
+  }
+  
   .about-content h1, .projects-title {
     font-size: 1.6rem !important;
   }
   
+  .project-card {
+    padding: 1.5rem 1.5rem !important;
+  }
+  
   .project-card h2 {
     font-size: 1.1rem !important;
+  }
+  
+  .project-card p {
+    max-width: 95% !important;
+  }
+  
+  .cta-line {
+    max-width: 75% !important;
+  }
+  
+  .contact-hidden, .contact-visible {
+    max-width: 75% !important;
   }
   
   .nav-links a {
@@ -854,7 +911,7 @@ button:focus {
 /* Mobile Impressum */
 @media (max-width: 768px) {
   .abschluss {
-    padding: 2rem 2rem !important;
+    padding: 2rem 3rem !important;
     justify-content: center !important;
   }
   
@@ -863,8 +920,9 @@ button:focus {
   }
   
   .impressum-hidden {
-    max-width: 100% !important;
+    max-width: 85% !important;
     text-align: left !important;
+    margin: 1.5rem auto 0 auto !important;
   }
 }
 
