@@ -1,6 +1,7 @@
 /* 🔤 Fonts & Grundfarben */
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Manrope', 'Inter', 'Playfair Display', Arial, sans-serif;
   background-color: #0e0e0e;
   color: #fff;
@@ -49,10 +50,13 @@ button:focus {
 /* Responsive Typography */
 @media (max-width: 600px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem !important;
+  }
+  h2 {
+    font-size: 1.4rem !important;
   }
   section {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem !important;
   }
 }
 
@@ -118,11 +122,21 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('IMG_5180.jpg') no-repeat center center;
+  background: url('IMG_5170.jpg') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   overflow: visible;
   padding: 6rem 4rem;
+}
+
+/* iPhone/Mobile Background Fix */
+@media (max-width: 768px) {
+  .about {
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    min-height: auto !important;
+    padding: 3rem 1rem !important;
+  }
 }
 
 .about::before {
@@ -167,12 +181,35 @@ button:focus {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: url('IMG_5170.jpg') no-repeat center center / cover;
+  background: url('IMG_5170.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
   text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 800px;
+}
+
+.hero h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #cccccc;
+  margin-bottom: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .hero h1 {
@@ -180,6 +217,16 @@ button:focus {
   font-weight: 700;
   margin-bottom: 1.5rem;
   font-family: 'Playfair Display', serif;
+}
+
+.hero h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #cccccc;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .hero p {
@@ -238,19 +285,29 @@ button:focus {
 
 /* === PROJECTS TEXT ONLY SECTION === */
 .projects-text-only {
-  min-height: 100vh;
+  min-height: auto;
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url('IMG_5180.jpg') no-repeat center center;
+  background: url('IMG_5170.jpg') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   overflow: visible;
-  padding: 6rem 0;
+  padding: 6rem 0 0 0;
   gap: 0;
+}
+
+/* iPhone/Mobile Background Fix */
+@media (max-width: 768px) {
+  .projects-text-only {
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    min-height: auto !important;
+    padding: 3rem 0 0 0 !important;
+  }
 }
 
 .projects-text-only::before {
@@ -275,80 +332,150 @@ button:focus {
   position: relative;
   z-index: 2;
   width: 100vw;
-  text-align: center;
-  padding: 3rem 4rem;
-  background: rgba(26, 26, 26, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  padding: 4rem 6rem;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(40, 40, 40, 0.6));
+  border: none;
   border-radius: 0;
-  margin-bottom: 2rem;
-  transition: background 0.3s ease, border-color 0.3s ease;
-  border-left: none;
+  margin-bottom: 0;
+  transition: all 0.4s ease;
+  border-left: 4px solid transparent;
   border-right: none;
+  backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+  background: linear-gradient(135deg, rgba(40, 40, 40, 0.9), rgba(60, 60, 60, 0.7));
+  border-left: 4px solid #9CAF77;
+  transform: translateX(10px);
+}
+
+/* iPhone/Mobile Project Cards Fix */
+@media (max-width: 768px) {
+  .project-card {
+    width: 100% !important;
+    padding: 3rem 2rem !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+  
+  .project-card:hover {
+    transform: none !important;
+    border-left: none !important;
+  }
+  
+  .project-card h2 {
+    font-size: 1.6rem !important;
+  }
+  
+  .project-card h2::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  
+  .project-role {
+    display: block !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: fit-content !important;
+  }
 }
 
 .project-card:last-child {
   margin-bottom: 0;
 }
 
-.project-card:hover {
-  background: rgba(26, 26, 26, 0.9);
-  border-color: rgba(255, 255, 255, 0.15);
-}
+/* Entfernt - wird durch neue Hover-Effekte ersetzt */
 
 .project-card h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
   font-weight: 400;
+  position: relative;
+}
+
+.project-card h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #9CAF77, transparent);
 }
 
 .project-card p {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #ccc;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ddd;
+  margin-bottom: 2rem;
+  max-width: 800px;
 }
 
 .project-role {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #9CAF77;
   font-style: normal;
-  font-weight: 400;
-  opacity: 0.9;
-  display: block;
+  font-weight: 500;
+  opacity: 1;
+  display: inline-block;
+  background: rgba(156, 175, 119, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(156, 175, 119, 0.3);
 }
 
-/* Mobile Anpassung */
+/* Mobile Anpassung - ÜBERARBEITET FÜR iPHONE */
 @media (max-width: 768px) {
+  /* Allgemeine Mobile Fixes */
+  body {
+    overflow-x: hidden !important;
+  }
+  
   .about {
-    min-height: 100vh;
-    padding: 4rem 1rem;
-    justify-content: center;
-    background-attachment: scroll; /* Fix für Mobile Hintergrund */
+    min-height: auto !important;
+    padding: 3rem 1rem !important;
+    background-attachment: scroll !important;
   }
   
   .about-container {
-    max-width: 100%;
+    max-width: 100% !important;
+  }
+  
+  .about-content h1 {
+    font-size: 2rem !important;
   }
 
   .projects-text-only {
-    min-height: 100vh;
-    padding: 4rem 1rem;
-    gap: 2rem;
-    background-attachment: scroll; /* Fix für Mobile Hintergrund */
+    min-height: auto !important;
+    padding: 3rem 0 0 0 !important;
+    background-attachment: scroll !important;
+  }
+  
+  .projects-title {
+    font-size: 2rem !important;
+    padding: 0 1rem !important;
   }
 
   .project-card {
-    padding: 2rem 1.5rem;
-    max-width: 100%;
+    width: 100% !important;
+    padding: 2.5rem 1.5rem !important;
+    margin-bottom: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    text-align: center !important;
   }
 
   .project-card h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem !important;
   }
+}
 
   /* Mobile Navigation Fix */
   .nav-header {
@@ -367,6 +494,11 @@ button:focus {
   .hero {
     padding: 1rem;
     min-height: 100vh;
+  }
+  
+  .hero h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.5rem !important;
   }
   
   .hero h1 {
@@ -396,9 +528,14 @@ button:focus {
 
   /* Mobile CTA Fix */
   .cta {
-    margin: 60px 1rem 60px;
-    padding: 60px 2rem;
-    max-width: none;
+    margin: 0 !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    padding: 6rem 2rem 6rem 2rem !important;
+    max-width: none !important;
+    width: 100vw !important;
+    border-radius: 0 !important;
+    min-height: auto !important;
   }
   
   .cta-line {
@@ -411,20 +548,206 @@ button:focus {
     font-size: 0.9rem;
   }
   
+.contact-hidden, .contact-visible {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* === SPEZIELLE iPHONE OPTIMIERUNG === */
+@media only screen and (max-width: 480px) {
+  /* iPhone Navigation */
+  .nav-header {
+    padding: 0.8rem 0 !important;
+    background-color: rgba(0, 0, 0, 0.95) !important;
+  }
+  
+  .nav-links {
+    gap: 1rem !important;
+  }
+  
+  .nav-links a {
+    font-size: 0.85rem !important;
+    padding: 0.5rem !important;
+  }
+
+  /* iPhone Hero */
+  .hero {
+    height: 100vh !important;
+    padding: 1rem !important;
+    background-attachment: scroll !important;
+  }
+  
+  .hero h3 {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  
+  .hero h1 {
+    font-size: 1.6rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* iPhone About */
+  .about {
+    padding: 2rem 1rem !important;
+    min-height: auto !important;
+  }
+  
+  .about-content h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .about-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* iPhone Projects */
+  .projects-text-only {
+    padding: 2rem 0 0 0 !important;
+  }
+  
+  .projects-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  .project-card {
+    width: 100% !important;
+    padding: 2rem 1rem !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+  }
+  
+  .project-card h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .project-card h2::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 40px !important;
+  }
+  
+  .project-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  .project-role {
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.8rem !important;
+  }
+
+  /* iPhone CTA */
+  .cta {
+    margin: 0 !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    padding: 5rem 1.5rem 5rem 1.5rem !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: 100vw !important;
+    min-height: auto !important;
+  }
+  
+  .cta-line {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .cta-button {
+    padding: 12px 24px !important;
+    font-size: 0.9rem !important;
+  }
+  
   .contact-hidden, .contact-visible {
-    font-size: 1rem;
-    margin-top: 1.5rem;
+    font-size: 0.9rem !important;
+    margin-top: 1rem !important;
   }
 }
 
+/* === SPEZIELLE iOS/SAFARI FIXES === */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari spezifische Fixes */
+  .hero, .about, .projects-text-only {
+    background-attachment: scroll !important;
+  }
+  
+  /* iOS Viewport Fix */
+  .hero {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* iPhone SE und kleinere Geräte */
+@media only screen and (max-width: 375px) {
+  .hero h3 {
+    font-size: 0.8rem !important;
+  }
+  
+  .hero h1 {
+    font-size: 1.4rem !important;
+  }
+  
+  .about-content h1, .projects-title {
+    font-size: 1.6rem !important;
+  }
+  
+  .project-card h2 {
+    font-size: 1.1rem !important;
+  }
+  
+  .nav-links a {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* === CTA KÄSTCHEN (innerhalb Projects Section) === */
 .cta {
-  background: linear-gradient(135deg, #151515, #0e0e0e);
-  padding: 100px 5vw;
+  background-color: #0e0e0e;
+  padding: 10rem 6rem 10rem 6rem;
   text-align: center;
-  border-radius: 20px;
-  margin: 120px auto 100px;
-  max-width: 800px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  border-radius: 0;
+  max-width: none;
+  width: 100vw;
+  box-shadow: none;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  z-index: 1;
+}
+
+.cta > * {
+  position: relative;
+  z-index: 2;
 }
 
 .cta h2 {
@@ -448,6 +771,7 @@ button:focus {
   display: inline-block;
   transition: all 0.3s ease;
   cursor: pointer;
+  margin-top: 2rem;
 }
 
 .cta-button:hover {
@@ -460,10 +784,88 @@ button:focus {
   font-size: 1.2rem;
   color: #cccccc;
   margin-bottom: 40px;
+  margin-top: 4rem;
   max-width: 700px;
   margin-inline: auto;
   line-height: 1.6;
   text-align: center;
+}
+
+/* === ABSCHLUSS SECTION === */
+.abschluss {
+  min-height: 20vh; /* kleinere Höhe */
+  background-color: #000000; /* noch tieferes Schwarz */
+  z-index: 10;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 4rem;
+}
+
+.impressum-container {
+  text-align: right;
+}
+
+.impressum-toggle {
+  color: #666;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: underline;
+}
+
+.impressum-toggle:hover {
+  color: #ccc;
+}
+
+.impressum-hidden {
+  display: none;
+  margin-top: 1.5rem;
+  text-align: left;
+  background: rgba(20, 20, 20, 0.9);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.impressum-visible {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.impressum-hidden h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.impressum-hidden p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Mobile Impressum */
+@media (max-width: 768px) {
+  .abschluss {
+    padding: 2rem 2rem !important;
+    justify-content: center !important;
+  }
+  
+  .impressum-container {
+    text-align: center !important;
+  }
+  
+  .impressum-hidden {
+    max-width: 100% !important;
+    text-align: left !important;
+  }
 }
 
 /* === GLOBAL STYLES === */
@@ -482,50 +884,6 @@ button:focus {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
-  font-family: var(--font-primary);
-  overflow-x: hidden;
-}
-
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: url('IMG_5170.jpg') no-repeat center center / cover;
-  text-align: center;
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* 40% Schwarzüberlagerung */
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 400;
-  letter-spacing: -0.5px;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  font-family: var(--font-secondary);
 }
 
 .btn {
