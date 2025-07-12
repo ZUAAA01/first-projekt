@@ -1232,22 +1232,8 @@ button:focus {
 
 .projects-visible {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Projects Content in Hero Section */
-.hero .projects-hidden {
-  display: none;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.hero .projects-visible {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: row !important; /* Immer horizontal, auch auf Mobile */
+  justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
   animation: fadeIn 0.5s ease-in-out;
@@ -1256,51 +1242,24 @@ button:focus {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-  flex-wrap: wrap;
-  padding: 0 1rem;
+  flex-wrap: nowrap; /* Keine Umbrüche */
+  padding: 0 0.5rem;
 }
 
-.hero .about-content {
-  max-width: 700px;
-  margin: 2rem auto 0 auto;
-  text-align: left;
-  width: 100%;
-  padding: 0 1rem;
-}
-
-.hero .about-content p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #ccc;
-  margin-bottom: 1rem;
-}
-
-.hero .about-hidden {
-  display: none;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.hero .about-visible {
-  display: block;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Project Cards in Hero Section - compact horizontal layout */
+/* Project Cards in Hero Section - kompakt für alle Geräte */
 .hero .project-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  padding: 1.2rem;
+  padding: 1rem;
   margin: 0;
   position: relative;
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 280px;
-  min-width: 250px;
+  flex: 1; /* Gleiche Breite für alle Cards */
+  min-width: 0; /* Wichtig für Flexbox */
   text-align: center;
-  flex: 1 1 280px;
 }
 
 .hero .project-card:hover {
@@ -1311,14 +1270,14 @@ button:focus {
 
 .hero .project-card h3 {
   font-family: 'Inter', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #fff;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
 }
 
 .hero .project-card p {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.68);
   margin-bottom: 0.8rem;
@@ -1328,34 +1287,92 @@ button:focus {
 
 .hero .project-card .project-role {
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
   opacity: 0.8;
 }
 
+/* Mobile-spezifische Anpassungen - ABER WEITERHIN HORIZONTAL */
 @media (max-width: 768px) {
   .hero .projects-visible {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row !important; /* Bleibt horizontal */
+    gap: 0.5rem !important;
+    padding: 0 0.2rem !important;
   }
   
   .hero .project-card {
-    padding: 1.2rem;
-    max-width: 300px;
-    min-width: auto;
-    flex: none;
+    padding: 0.8rem !important;
+    flex: 1 !important; /* Gleiche Breite */
+    min-width: 0 !important;
   }
   
   .hero .project-card h3 {
-    font-size: 1.1rem;
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem !important;
   }
   
   .hero .project-card p {
-    font-size: 0.85rem;
-    font-weight: 200;
-    font-style: normal;
-    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.7rem !important;
+    line-height: 1.3 !important;
   }
+  
+  .hero .project-card .project-role {
+    font-size: 0.6rem !important;
+  }
+}
+
+/* Extra kleine Smartphones */
+@media (max-width: 480px) {
+  .hero .projects-visible {
+    gap: 0.3rem !important;
+    padding: 0 0.1rem !important;
+  }
+  
+  .hero .project-card {
+    padding: 0.6rem !important;
+  }
+  
+  .hero .project-card h3 {
+    font-size: 0.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero .project-card p {
+    font-size: 0.65rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .hero .project-card .project-role {
+    font-size: 0.55rem !important;
+  }
+}
+
+/* About Content in Hero Section - KORRIGIERT */
+.hero .about-content {
+  max-width: 600px;
+  margin: 2rem auto 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.hero .about-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; /* Zurück zur ursprünglichen Größe */
+  line-height: 1.6; /* Zurück zur ursprünglichen Zeilenhöhe */
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 1rem;
+  font-weight: 300; /* Zurück zum ursprünglichen Font-Weight */
+  font-style: normal;
+}
+
+.hero .about-hidden {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.hero .about-visible {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
