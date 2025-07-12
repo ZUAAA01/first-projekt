@@ -597,9 +597,14 @@ button:focus {
     z-index: -10 !important;
     opacity: 1 !important;
     transform: none !important;
+    /* Mobile-spezifische Video-Eigenschaften */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   
-  /* Fallback Background für Mobile wenn Video nicht lädt */
+  /* Fallback Background für Mobile */
   body {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%) !important;
     background-attachment: fixed !important;
