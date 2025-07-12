@@ -296,15 +296,13 @@
         .hero .projects-visible {
           display: flex;
           flex-direction: row; /* Desktop: nebeneinander */
-          justify-content: space-between;
+          justify-content: center; /* MITTIG ZENTRIERT */
           align-items: flex-start;
           gap: 2rem;
           animation: fadeIn 0.5s ease-in-out;
-          margin-top: 1.5rem;
+          margin: 1.5rem auto; /* Auto-Margin für Zentrierung */
           width: 100%;
           max-width: 1100px;
-          margin-left: auto;
-          margin-right: auto;
         }
 
         /* Project Cards in Hero Section - Desktop Styles */
@@ -320,6 +318,7 @@
           width: 100%;
           flex: 1;
           min-width: 300px;
+          max-width: 350px; /* Maximale Breite für bessere Zentrierung */
           text-align: left;
         }
 
@@ -363,6 +362,30 @@
           padding-top: 1rem;
           margin-top: 1rem;
         }
+        
+        /* Toggle Buttons - zentriert */
+        .toggle-buttons {
+          display: flex;
+          justify-content: center; /* Horizontal zentriert */
+          align-items: center; /* Vertikal zentriert */
+          gap: 3rem;
+          margin: 3rem 0;
+          width: 100%;
+        }
+
+        .about-toggle, 
+        .projects-toggle, 
+        .contact-toggle {
+          font-family: 'Inter', sans-serif;
+          font-size: 1.5rem;
+          color: #ffffff;
+          cursor: pointer;
+          transition: color 0.3s ease;
+          text-align: center;
+          font-weight: 400;
+          padding: 0.5rem 1rem;
+          min-width: 120px; /* Einheitliche Mindestbreite */
+        }
     </style>
 </head>
 <body id="top">
@@ -382,9 +405,9 @@
       <h4>Jazan Qutshan</h4>
       <h1>Architekt strategischer Systeme</h1>
       <p>
-        Wo Verbindung beginnt und Veränderung entsteht. <br>
+        " Wo Verbindung beginnt und Veränderung entsteht. <br>
         Dort, wo Ideen auf Vertrauen treffen <br>
-        und aus Arbeit Bedeutung wird.
+        und aus Arbeit Bedeutung wird "
       </p>
       
       <!-- Toggle Buttons nebeneinander -->
@@ -620,8 +643,3 @@
 
 </body>
 </html>
-
-
-git add style.css
-git commit -m "Mobile Fix: About-Text vollständig sichtbar, Projects untereinander"
-git push origin main
