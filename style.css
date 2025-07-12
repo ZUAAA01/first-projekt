@@ -603,12 +603,6 @@ button:focus {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
-  
-  /* Fallback Background für Mobile */
-  body {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%) !important;
-    background-attachment: fixed !important;
-  }
 }
 
 /* iOS Safari spezifische Video-Fixes */
@@ -1433,43 +1427,43 @@ button:focus {
 
 /* Mobile-spezifische Optimierungen für RAM-Performance */
 @media (max-width: 768px) {
+  /* Hero Section - kompakter */
+  .hero {
+    min-height: 100vh !important;
+    padding: 1rem !important;
+  }
+  
+  .hero-content {
+    max-width: 95% !important;
+    padding: 0 !important;
+  }
+  
+  /* Toggle Buttons - vertikal für bessere UX */
+  .toggle-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+    margin: 2rem 0 !important;
+    width: 100% !important;
+  }
+  
+  .about-toggle, 
+  .projects-toggle, 
+  .contact-toggle {
+    width: 80% !important;
+    max-width: 250px !important;
+    font-size: 1rem !important;
+    padding: 0.8rem 1rem !important;
+    text-align: center !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0.5rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+  
   /* About Content - kompakter für Mobile */
   .hero .about-content {
     max-width: 90% !important;
-    padding: 1rem !important;
-    margin: 1rem auto !important;
-  }
-  
-  .hero .about-content p {
-    font-size: 0.85rem !important;
-    line-height: 1.4 !important;
-    margin-bottom: 0.8rem !important;
-    font-weight: 300 !important;
-  }
-  
-  /* Projects - extrem kompakt für Mobile RAM-Schonung */
-  .hero .projects-visible {
-    flex-direction: column !important; /* Auf Mobile: untereinander statt nebeneinander */
-    gap: 1rem !important;
-    max-height: 70vh !important;
-    overflow-y: auto !important;
-    padding: 0.5rem !important;
-  }
-  
-  .hero .project-card {
-    flex: none !important;
-    width: 100% !important;
-    max-width: none !important;
-    min-height: auto !important;
-    padding: 1rem !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  .hero .project-card h3 {
-    font-size: 1rem !important;
-    margin-bottom: 1rem !important;
-  }
-  
   .hero .project-card p {
     font-size: 0.75rem !important;
     line-height: 1.3 !important;
@@ -1542,6 +1536,4 @@ button:focus {
     max-width: 200px !important;
   }
 }
-
-video.muted = true;
 
