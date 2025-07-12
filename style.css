@@ -1501,27 +1501,9 @@ button:focus {
   .about-toggle, 
   .projects-toggle, 
   .contact-toggle {
-    font-size: 1rem !important;
-    min-width: 80px !important;
-    max-width: 120px !important;
-    padding: 0.5rem !important;
-  }
-  
-  /* Hero Hauptinhalt - kompakter */
-  .hero h4 {
-    font-size: 1rem !important;
-  }
-  
-  .hero h1 {
-    font-size: 1.8rem !important;
-    line-height: 1.2 !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  .hero p {
     font-size: 0.9rem !important;
-    line-height: 1.4 !important;
-    margin-bottom: 2rem !important;
+    width: 100% !important;
+    max-width: 200px !important;
   }
 }
 
@@ -1560,4 +1542,6 @@ button:focus {
     max-width: 200px !important;
   }
 }
+
+video.muted = true;
 
