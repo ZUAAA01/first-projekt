@@ -563,154 +563,84 @@ button:focus {
   transform: translateY(-2px);
 }
 
-/* Mobile Anpassung - KOMPLETT ÜBERARBEITET */
+/* Desktop-Layout für alle Geräte - IDENTISCHES DESIGN */
+/* Entfernt alle @media queries für einheitliches Erlebnis */
+
+/* Video Background sicherstellen */
+#bg-video {
+  z-index: -10 !important;
+  opacity: 1 !important;
+}
+
+#bgCanvas {
+  z-index: -5 !important;
+  opacity: 0.3 !important;
+}
+
+/* Toggle Buttons horizontal für alle Geräte */
+.toggle-buttons {
+  display: flex;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.about-toggle, 
+.projects-toggle, 
+.contact-toggle {
+  flex: 1;
+  min-width: 120px;
+  max-width: 200px;
+  text-align: center;
+}
+
+/* Responsive Font Sizes für bessere Lesbarkeit */
 @media (max-width: 768px) {
-  /* Allgemeine Mobile Fixes */
-  body {
-    overflow-x: hidden !important;
-    font-size: 16px;
-  }
-  
-  /* Hero Section Mobile */
-  .hero {
-    padding: 2rem 1.5rem !important;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .hero-content {
-    max-width: 100% !important;
-    margin: 0 auto;
-    text-align: center;
+  .hero h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
   }
   
   .hero h4 {
     font-size: 0.9rem !important;
-    margin-bottom: 0.5rem !important;
-    letter-spacing: 0.5px;
-  }
-  
-  .hero h1 {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
-    margin-bottom: 1.5rem !important;
-    letter-spacing: -0.5px;
   }
   
   .hero p {
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 2rem !important;
-    max-width: 100%;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
   }
-
-  /* Toggle Buttons Mobile */
+  
   .toggle-buttons {
-    flex-direction: column !important;
     gap: 1rem !important;
-    margin-bottom: 2rem !important;
-    width: 100%;
   }
   
   .about-toggle, 
   .projects-toggle, 
   .contact-toggle {
-    width: 100% !important;
-    padding: 1rem 2rem !important;
-    font-size: 1rem !important;
-    text-align: center;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  /* About Content Mobile */
-  .about-content {
-    padding: 2rem 1.5rem !important;
-    max-width: 100% !important;
+    font-size: 0.9rem !important;
+    padding: 0.8rem 1.2rem !important;
   }
   
-  .about-content p {
-    font-size: 0.95rem !important;
-    line-height: 1.7 !important;
-    margin-bottom: 1.5rem !important;
-  }
-
-  /* Projects Container Mobile */
-  .projects-container {
-    padding: 2rem 1rem !important;
-    gap: 2rem !important;
-    max-width: 100% !important;
-  }
-
-  /* Project Cards Mobile */
   .project-card {
+    margin-bottom: 2rem !important;
     padding: 2rem 1.5rem !important;
-    margin-bottom: 0 !important;
-    text-align: left !important;
-    max-width: 100% !important;
-    border-radius: 12px !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(10px) !important;
   }
-
+  
   .project-card h3 {
     font-size: 1.3rem !important;
-    margin-bottom: 1.5rem !important;
-    text-align: center;
-    letter-spacing: -0.3px;
   }
   
   .project-card p {
     font-size: 0.9rem !important;
     line-height: 1.6 !important;
-    margin-bottom: 1.5rem !important;
   }
   
-  .project-role {
-    font-size: 0.8rem !important;
-    text-align: center;
-    padding: 1rem 0 !important;
-    margin-top: 1rem !important;
-  }
-
-  /* Contact Content Mobile */
-  .contact-content {
-    padding: 2rem 1.5rem !important;
-    text-align: center;
-  }
-  
-  .contact-content p {
-    font-size: 1rem !important;
-    margin-bottom: 0.8rem !important;
-  }
-
-  /* Impressum Mobile */
-  .abschluss {
-    padding: 3rem 1.5rem !important;
-  }
-  
-  .impressum-toggle {
-    padding: 1rem 2rem !important;
-    font-size: 1rem !important;
-  }
-  
-  #impressum-content {
-    padding: 2rem 1.5rem !important;
-    margin-top: 2rem !important;
-  }
-  
-  #impressum-content h3 {
-    font-size: 1.4rem !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  #impressum-content p {
-    font-size: 0.9rem !important;
+  .about-content p {
+    font-size: 0.95rem !important;
     line-height: 1.6 !important;
-    margin-bottom: 1rem !important;
   }
 }
 
