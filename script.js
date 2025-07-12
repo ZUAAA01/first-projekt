@@ -101,83 +101,82 @@ function handleReachMe() {
   alert("Reach Me Button gedrückt – hier kommt später dein Kontaktmodul.");
 }
 
-// Mobile Video Fix - am Ende der Datei ersetzen
+// Mobile Video Fix - verbessert
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('bg-video');
     
     if (video) {
-        // Grundlegende Video-Attribute
-        video.setAttribute('playsinline', 'true');
-        video.setAttribute('webkit-playsinline', 'true');
+        // Kritische Mobile-Attribute setzen
         video.muted = true;
         video.loop = true;
         video.autoplay = true;
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('webkit-playsinline', 'true');
+        video.setAttribute('preload', 'auto');
         
-        // Mobile Browser Erkennung
+        // Mobile Browser Detection
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
         if (isMobile) {
-            // Mobile-spezifische Video-Einstellungen
+            // Mobile-spezifische Einstellungen
+            video.setAttribute('muted', 'true');
             video.setAttribute('playsinline', 'true');
             video.setAttribute('webkit-playsinline', 'true');
             video.setAttribute('x5-video-player-type', 'h5');
             video.setAttribute('x5-video-player-fullscreen', 'false');
-            video.setAttribute('x5-video-orientation', 'portraint');
             
-            // Video als Hintergrund forcieren (nicht Vollbild)
-            video.style.position = 'fixed';
-            video.style.top = '0';
-            video.style.left = '0';
-            video.style.width = '100vw';
-            video.style.height = '100vh';
-            video.style.objectFit = 'cover';
-            video.style.zIndex = '-10';
-            video.style.pointerEvents = 'none';
-            
-            // Versuche Video zu starten
-            const playVideo = () => {
-                const playPromise = video.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        console.log('Mobile background video started successfully');
-                        video.style.opacity = '1';
-                    }).catch(error => {
-                        console.log('Video autoplay failed on mobile:', error);
-                        // Fallback: Gradient Hintergrund
-                        document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)';
-                        document.body.style.backgroundAttachment = 'fixed';
-                    });
-                }
+            // Mehrere Versuche das Video zu starten
+            const startVideo = () => {
+                video.play().then(() => {
+                    console.log('✅ Mobile video started successfully');
+                    video.style.opacity = '1';
+                }).catch(error => {
+                    console.log('❌ Video autoplay failed:', error);
+                    // Fallback Background
+                    document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)';
+                    document.body.style.backgroundAttachment = 'fixed';
+                });
             };
             
             // Sofort versuchen
-            playVideo();
+            startVideo();
             
-            // Touch-Event für iOS (falls nötig)
-            document.addEventListener('touchstart', function enableVideoOnTouch() {
-                playVideo();
-                document.removeEventListener('touchstart', enableVideoOnTouch);
-            }, { once: true });
+            // Bei User-Interaktion versuchen
+            ['touchstart', 'click', 'scroll'].forEach(event => {
+                document.addEventListener(event, function enableVideo() {
+                    startVideo();
+                    document.removeEventListener(event, enableVideo);
+                }, { once: true, passive: true });
+            });
             
-            // User Interaction Handler
-            document.addEventListener('click', function enableVideoOnClick() {
-                playVideo();
-                document.removeEventListener('click', enableVideoOnClick);
-            }, { once: true });
+            // Intersection Observer für Lazy Loading
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            startVideo();
+                            observer.unobserve(video);
+                        }
+                    });
+                });
+                observer.observe(video);
+            }
         }
         
-        // Video Load Error Handler
-        video.addEventListener('error', function() {
-            console.log('Video load error - using fallback background');
+        // Error Handler
+        video.addEventListener('error', function(e) {
+            console.log('❌ Video error:', e);
             document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)';
             document.body.style.backgroundAttachment = 'fixed';
-            video.style.display = 'none';
         });
         
-        // Video erfolgreich geladen
+        // Success Handler
         video.addEventListener('loadeddata', function() {
-            console.log('Video loaded successfully');
+            console.log('✅ Video loaded successfully');
+        });
+        
+        video.addEventListener('canplay', function() {
+            console.log('✅ Video can play');
             if (isMobile) {
                 video.play().catch(console.log);
             }

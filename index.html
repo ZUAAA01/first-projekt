@@ -41,6 +41,251 @@
             overflow-x: hidden;
             overflow-y: auto !important;
         }
+        
+        /* Mobile-spezifische Optimierungen für RAM-Performance */
+        @media (max-width: 768px) {
+          /* Hero Section - kompakter */
+          .hero {
+            min-height: 100vh !important;
+            padding: 1rem !important;
+          }
+          
+          .hero-content {
+            max-width: 95% !important;
+            padding: 0 !important;
+          }
+          
+          /* Toggle Buttons - vertikal für bessere UX */
+          .toggle-buttons {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1rem !important;
+            align-items: center !important;
+            margin: 2rem 0 !important;
+            width: 100% !important;
+          }
+          
+          .about-toggle, 
+          .projects-toggle, 
+          .contact-toggle {
+            width: 80% !important;
+            max-width: 250px !important;
+            font-size: 1rem !important;
+            padding: 0.8rem 1rem !important;
+            text-align: center !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border-radius: 0.5rem !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+          }
+          
+          /* ABOUT CONTENT - MEHR HÖHE für vollständigen Text */
+          .hero .about-content {
+            max-width: 90% !important;
+            padding: 1.5rem !important;
+            margin: 1rem auto !important;
+            max-height: 75vh !important; /* Mehr Höhe für vollständigen Text */
+            overflow-y: auto !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 1rem !important;
+          }
+          
+          .hero .about-content p {
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important; /* Bessere Lesbarkeit */
+            margin-bottom: 1rem !important; /* Mehr Abstand zwischen Absätzen */
+            font-weight: 300 !important;
+            color: rgba(255, 255, 255, 0.82) !important;
+          }
+          
+          /* PROJECTS CONTENT - SPALTEN-LAYOUT für Mobile */
+          .hero .projects-visible {
+            flex-direction: column !important; /* UNTEREINANDER auf Mobile */
+            gap: 1.5rem !important;
+            max-height: 70vh !important;
+            overflow-y: auto !important;
+            padding: 1rem !important;
+            margin: 1rem auto !important;
+            width: 95% !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 1rem !important;
+          }
+          
+          .hero .project-card {
+            flex: none !important;
+            width: 100% !important; /* Volle Breite auf Mobile */
+            max-width: none !important;
+            min-height: auto !important;
+            padding: 1.5rem !important; /* Mehr Padding für bessere Lesbarkeit */
+            margin-bottom: 0 !important; /* Kein extra Margin, Gap regelt Abstände */
+            background: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 0.8rem !important;
+          }
+          
+          .hero .project-card h3 {
+            font-size: 1.1rem !important;
+            margin-bottom: 1.5rem !important;
+            color: #fff !important;
+            text-align: center !important;
+          }
+          
+          .hero .project-card p {
+            font-size: 0.8rem !important; /* Etwas größer für bessere Lesbarkeit */
+            line-height: 1.4 !important;
+            font-weight: 200 !important;
+            margin-bottom: 1.2rem !important;
+            color: rgba(255, 255, 255, 0.75) !important; /* Etwas heller */
+          }
+          
+          .hero .project-card .project-role {
+            font-size: 0.7rem !important;
+            padding: 0.8rem 0 !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-align: center !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            margin-top: 1rem !important;
+          }
+          
+          /* CONTACT CONTENT - korrekt strukturiert */
+          .hero .contact-content {
+            padding: 1.5rem !important;
+            max-width: 90% !important;
+            margin: 1rem auto !important;
+            max-height: 40vh !important;
+            overflow-y: auto !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 1rem !important;
+          }
+          
+          .hero .contact-content p {
+            font-size: 0.95rem !important;
+            margin-bottom: 0.8rem !important;
+            color: #fff !important;
+          }
+          
+          .hero .contact-content strong {
+            color: #9CAF77 !important;
+          }
+          
+          /* Haupttext kleiner */
+          .hero h4 {
+            font-size: 1rem !important;
+          }
+          
+          .hero h1 {
+            font-size: 1.8rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .hero p {
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 2rem !important;
+          }
+          
+          /* Scrollbar styling für Mobile */
+          .hero .projects-visible::-webkit-scrollbar,
+          .hero .about-content::-webkit-scrollbar,
+          .hero .contact-content::-webkit-scrollbar {
+            width: 4px !important;
+          }
+          
+          .hero .projects-visible::-webkit-scrollbar-track,
+          .hero .about-content::-webkit-scrollbar-track,
+          .hero .contact-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 10px !important;
+          }
+          
+          .hero .projects-visible::-webkit-scrollbar-thumb,
+          .hero .about-content::-webkit-scrollbar-thumb,
+          .hero .contact-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3) !important;
+            border-radius: 10px !important;
+          }
+        }
+        
+        /* Extra kleine Smartphones - noch besser optimiert */
+        @media (max-width: 480px) {
+          .hero {
+            padding: 0.5rem !important;
+          }
+          
+          .toggle-buttons {
+            gap: 0.8rem !important;
+            margin: 1.5rem 0 !important;
+          }
+          
+          .about-toggle, 
+          .projects-toggle, 
+          .contact-toggle {
+            font-size: 0.9rem !important;
+            padding: 0.6rem 0.8rem !important;
+            width: 90% !important;
+          }
+          
+          /* About für kleine Smartphones */
+          .hero .about-content {
+            max-height: 70vh !important; /* Mehr Höhe auch für kleine Screens */
+            padding: 1rem !important;
+          }
+          
+          .hero .about-content p {
+            font-size: 0.8rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 0.8rem !important;
+          }
+          
+          /* Projects für kleine Smartphones */
+          .hero .projects-visible {
+            max-height: 65vh !important;
+            padding: 0.8rem !important;
+            gap: 1.2rem !important;
+          }
+          
+          .hero .project-card {
+            padding: 1.2rem !important;
+          }
+          
+          .hero .project-card h3 {
+            font-size: 1rem !important;
+            margin-bottom: 1.2rem !important;
+          }
+          
+          .hero .project-card p {
+            font-size: 0.75rem !important;
+            line-height: 1.35 !important;
+          }
+          
+          .hero .project-card .project-role {
+            font-size: 0.65rem !important;
+          }
+          
+          /* Contact für kleine Smartphones */
+          .hero .contact-content {
+            max-height: 35vh !important;
+            padding: 1rem !important;
+          }
+          
+          .hero .contact-content p {
+            font-size: 0.85rem !important;
+          }
+          
+          .hero h1 {
+            font-size: 1.5rem !important;
+          }
+          
+          .hero p {
+            font-size: 0.85rem !important;
+          }
+        }
     </style>
 </head>
 <body id="top">
