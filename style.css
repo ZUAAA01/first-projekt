@@ -1166,3 +1166,18 @@ button:focus {
   }
 }
 
+/* SVG Wellenfilter Animation */
+body {
+  animation: wellenBewegung 20s ease-in-out infinite;
+  filter: url(#wellenFilter);
+}
+
+@keyframes wellenBewegung {
+  0%, 100% {
+    filter: url(#wellenFilter) hue-rotate(0deg);
+  }
+  50% {
+    filter: url(#wellenFilter) hue-rotate(10deg);
+  }
+}
+
