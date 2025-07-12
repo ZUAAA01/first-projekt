@@ -100,3 +100,50 @@ function toggleProjects() {
 function handleReachMe() {
   alert("Reach Me Button gedrückt – hier kommt später dein Kontaktmodul.");
 }
+
+// Mobile Video Fix - am Ende der Datei hinzufügen
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('bg-video');
+    
+    if (video) {
+        // Mobile Video Optimierung
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('webkit-playsinline', 'true');
+        video.muted = true;
+        video.loop = true;
+        video.autoplay = true;
+        
+        // Fallback für Mobile-Browser
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+            // Versuche Video zu starten
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log('Video started successfully on mobile');
+                    video.style.opacity = '1';
+                }).catch(error => {
+                    console.log('Video autoplay failed on mobile:', error);
+                    // Fallback: Setze statischen Hintergrund
+                    document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)';
+                    video.style.display = 'none';
+                });
+            }
+            
+            // Touch-Event Listener für iOS
+            document.addEventListener('touchstart', function enableVideo() {
+                video.play();
+                document.removeEventListener('touchstart', enableVideo);
+            }, { once: true });
+        }
+        
+        // Video Load Error Handler
+        video.addEventListener('error', function() {
+            console.log('Video load error - using fallback background');
+            document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)';
+            video.style.display = 'none';
+        });
+    }
+});

@@ -572,6 +572,56 @@ button:focus {
   opacity: 1 !important;
 }
 
+/* Video Background - Mobile-optimiert */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -10;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Mobile Video Fixes */
+@media (max-width: 768px) {
+  #bg-video {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+    z-index: -10 !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  /* Fallback Background für Mobile wenn Video nicht lädt */
+  body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%) !important;
+    background-attachment: fixed !important;
+  }
+}
+
+/* iOS Safari spezifische Video-Fixes */
+@supports (-webkit-touch-callout: none) {
+  #bg-video {
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+  }
+}
+
+/* Video Background sicherstellen */
+#bg-video {
+  z-index: -10 !important;
+  opacity: 1 !important;
+}
+
 #bgCanvas {
   z-index: -5 !important;
   opacity: 0.3 !important;
