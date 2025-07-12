@@ -563,97 +563,195 @@ button:focus {
   transform: translateY(-2px);
 }
 
-/* Mobile Anpassung - ÜBERARBEITET FÜR iPHONE */
+/* Mobile Anpassung - KOMPLETT ÜBERARBEITET */
 @media (max-width: 768px) {
   /* Allgemeine Mobile Fixes */
   body {
     overflow-x: hidden !important;
+    font-size: 16px;
   }
   
-  .about {
-    min-height: auto !important;
-    padding: 3rem 2rem !important;
-    background-attachment: fixed !important;
-  }
-  
-  .about-container {
-    max-width: 90% !important;
-    margin: 0 auto !important;
-  }
-  
-  .about-content h2 {
-    font-size: 2rem !important;
-  }
-
-  .projects-text-only {
-    min-height: auto !important;
-    padding: 3rem 0 0 0 !important;
-    background-attachment: fixed !important;
-  }
-  
-  .projects-title {
-    font-size: 2rem !important;
-    padding: 0 2rem !important;
-  }
-
-  .projects-container {
-    max-width: 100% !important;
-    gap: 1.5rem !important;
-    padding: 0 2rem !important;
-  }
-
-  .project-card {
-    padding: 2.5rem 2rem !important;
-    margin-bottom: 0 !important;
-    border-left: none !important;
-    border-right: none !important;
-    text-align: center !important;
-    max-width: 100% !important;
-  }
-
-  .project-card h3 {
-    font-size: 1.4rem !important;
-  }
-}
-
-  /* Mobile Hero Fix */
+  /* Hero Section Mobile */
   .hero {
-    padding: 1rem 2rem;
+    padding: 2rem 1.5rem !important;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .hero-content {
-    max-width: 90%;
+    max-width: 100% !important;
     margin: 0 auto;
+    text-align: center;
   }
   
-  .hero h3 {
-    font-size: 0.95rem !important;
+  .hero h4 {
+    font-size: 0.9rem !important;
     margin-bottom: 0.5rem !important;
+    letter-spacing: 0.5px;
   }
   
   .hero h1 {
-    font-size: 2.2rem !important;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1.5rem !important;
+    letter-spacing: -0.5px;
   }
   
   .hero p {
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    line-height: 1.5;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 2rem !important;
+    max-width: 100%;
   }
 
-  /* Mobile Project Cards Fix */
-  .project-card {
+  /* Toggle Buttons Mobile */
+  .toggle-buttons {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    margin-bottom: 2rem !important;
     width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+  }
+  
+  .about-toggle, 
+  .projects-toggle, 
+  .contact-toggle {
+    width: 100% !important;
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+    text-align: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* About Content Mobile */
+  .about-content {
+    padding: 2rem 1.5rem !important;
+    max-width: 100% !important;
+  }
+  
+  .about-content p {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Projects Container Mobile */
+  .projects-container {
+    padding: 2rem 1rem !important;
+    gap: 2rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Project Cards Mobile */
+  .project-card {
+    padding: 2rem 1.5rem !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  .project-card h3 {
+    font-size: 1.3rem !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center;
+    letter-spacing: -0.3px;
+  }
+  
+  .project-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .project-role {
+    font-size: 0.8rem !important;
+    text-align: center;
+    padding: 1rem 0 !important;
+    margin-top: 1rem !important;
+  }
+
+  /* Contact Content Mobile */
+  .contact-content {
+    padding: 2rem 1.5rem !important;
+    text-align: center;
+  }
+  
+  .contact-content p {
+    font-size: 1rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  /* Impressum Mobile */
+  .abschluss {
+    padding: 3rem 1.5rem !important;
+  }
+  
+  .impressum-toggle {
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+  }
+  
+  #impressum-content {
+    padding: 2rem 1.5rem !important;
+    margin-top: 2rem !important;
+  }
+  
+  #impressum-content h3 {
+    font-size: 1.4rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  #impressum-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Weitere Mobile Optimierungen */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  .hero h4 {
+    font-size: 0.8rem !important;
+  }
+  
+  .project-card {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .project-card h3 {
+    font-size: 1.2rem !important;
+  }
+  
+  .toggle-buttons {
+    gap: 0.8rem !important;
+  }
+  
+  .about-toggle, 
+  .projects-toggle, 
+  .contact-toggle {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .project-card {
     padding: 2rem 1rem;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
   }
+}
   
   .projects-text-only {
     padding: 4rem 0;
