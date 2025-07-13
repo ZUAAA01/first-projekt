@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* KOMPLETT BEREINIGTES CSS - ALLE DOPPELUNGEN ENTFERNT */
+        /* KOMPLETT BEREINIGTES CSS - NUR DESKTOP */
 
         /* 🖼️ Vollbild-Hintergrundbild */
         #bg-image {
@@ -52,7 +52,7 @@
           line-height: 1.2 !important;
           margin-bottom: 2rem !important;
           color: #ffffff !important;
-          text-align: center !important;
+          text-align: center !important;;
         }
         
         /* Toggle Buttons Desktop */
@@ -79,21 +79,17 @@
           min-width: 120px;
         }
 
-        /* Projects Desktop */
-        .hero .projects-hidden {
-          display: none;
-        }
-
+        /* Projects Desktop - NEBENEINANDER MITTIG */
         .hero .projects-visible {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: flex-start;
-          gap: 2rem;
-          animation: fadeIn 0.5s ease-in-out;
-          margin: 1.5rem auto;
-          width: 100%;
-          max-width: 1100px;
+          display: flex !important;
+          flex-direction: row !important;
+          justify-content: center !important;
+          align-items: flex-start !important;
+          gap: 2rem !important;
+          animation: fadeIn 0.5s ease-in-out !important;
+          margin: 1.5rem auto !important;
+          width: 100% !important;
+          max-width: 1100px !important;
         }
 
         .hero .project-card {
@@ -108,7 +104,7 @@
           width: 100% !important;
           flex: 1 !important;
           min-width: 300px !important;
-          max-width: 350px !important;
+          max-width: 450px !important;
           text-align: left !important;
         }
 
@@ -153,204 +149,80 @@
           margin-top: 1rem !important;
         }
         
-        /* MOBILE STYLES - OHNE CONTAINER-LAYOUTS */
-        @media (max-width: 768px) {
-          .hero {
-            min-height: 100vh !important;
-            padding: 2rem 1.5rem !important;
-          }
-          
-          .hero-content {
-            max-width: 90% !important;
-            padding: 1rem !important;
-            margin: 0 auto !important;
-          }
-          
-          .hero h4 {
-            font-size: 0.9rem !important;
-            margin-bottom: 1rem !important;
-          }
-          
-          .hero h1 {
-            font-family: 'Inter', sans-serif !important;
-            font-weight: 400 !important;
-            font-size: 1.5rem !important;
-            line-height: 1.3 !important;
-            margin-bottom: 1.5rem !important;
-          }
-          
-          /* Toggle Buttons Mobile - VERTIKAL */
-          .toggle-buttons {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            align-items: center !important;
-            margin: 3rem 0 !important;
-            width: 100% !important;
-            padding: 0 2rem !important;
-          }
-          
-          .about-toggle, 
-          .projects-toggle, 
-          .contact-toggle {
-            width: 70% !important;
-            max-width: 200px !important;
-            font-size: 0.9rem !important;
-            padding: 0.7rem 1rem !important;
-            text-align: center !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            border-radius: 0.5rem !important;
-            background: rgba(255, 255, 255, 0.05) !important;
-          }
-          
-          /* ABOUT CONTENT - DIREKT AUF SEITE */
-          .hero .about-content {
-            background: none !important;
-            backdrop-filter: none !important;
-            border: none !important;
-            border-radius: 0 !important;
-            padding: 2rem 0 !important;
-            margin: 2rem auto !important;
-            max-width: 100% !important;
-            max-height: none !important;
-            overflow-y: visible !important;
-            box-shadow: none !important;
-          }
-          
-          .hero .about-content p {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.9rem !important;
-            line-height: 1.6 !important;
-            margin-bottom: 1.5rem !important;
-            font-weight: 300 !important;
-            color: rgba(255, 255, 255, 0.85) !important;
-            text-align: left !important;
-            padding: 0 !important;
-          }
-          
-          /* PROJECTS CONTENT - DIREKT AUF SEITE */
-          .hero .projects-visible {
-            display: block !important;
-            background: none !important;
-            backdrop-filter: none !important;
-            border: none !important;
-            border-radius: 0 !important;
-            padding: 2rem 0 !important;
-            margin: 2rem auto !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            max-height: none !important;
-            overflow-y: visible !important;
-          }
-          
-          .hero .project-card {
-            background: none !important;
-            backdrop-filter: none !important;
-            border: none !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-radius: 0 !important;
-            padding: 2rem 0 !important;
-            margin: 0 0 2rem 0 !important;
-            width: 100% !important;
-            max-width: none !important;
-            min-width: auto !important;
-            flex: none !important;
-          }
-          
-          .hero .project-card:last-child {
-            border-bottom: none !important;
-          }
-          
-          .hero .project-card h3 {
-            font-size: 1.2rem !important;
-            margin-bottom: 1.5rem !important;
-            text-align: left !important;
-            color: #fff !important;
-          }
-          
-          .hero .project-card p {
-            font-size: 0.9rem !important;
-            line-height: 1.5 !important;
-            margin-bottom: 1.5rem !important;
-            color: rgba(255, 255, 255, 0.8) !important;
-            font-weight: 300 !important;
-          }
-          
-          .hero .project-card .project-role {
-            font-size: 0.8rem !important;
-            text-align: left !important;
-            color: rgba(255, 255, 255, 0.6) !important;
-            font-weight: 400 !important;
-            border-top: none !important;
-            padding-top: 0 !important;
-            margin-top: 0.5rem !important;
-            opacity: 1 !important;
-          }
-          
-          /* CONTACT CONTENT - DIREKT AUF SEITE */
-          .hero .contact-content {
-            background: none !important;
-            backdrop-filter: none !important;
-            border: none !important;
-            border-radius: 0 !important;
-            padding: 2rem 0 !important;
-            margin: 2rem auto !important;
-            max-width: 100% !important;
-            max-height: none !important;
-            overflow-y: visible !important;
-          }
-          
-          .hero .contact-content p {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 1rem !important;
-            margin-bottom: 1rem !important;
-            color: rgba(255, 255, 255, 0.85) !important;
-            font-weight: 300 !important;
-            text-align: left !important;
-          }
-          
-          .hero .contact-content strong {
-            color: rgba(255, 255, 255, 0.95) !important;
-            font-weight: 500 !important;
-          }
+        /* FEHLENDE CSS-KLASSEN */
+
+        /* Hidden States für alle Toggle-Inhalte */
+        .about-hidden,
+        .projects-hidden,
+        .contact-hidden,
+        .impressum-hidden {
+          display: none !important;
         }
 
-        /* Extra kleine Smartphones */
-        @media (max-width: 480px) {
-          .hero {
-            padding: 1.5rem 1rem !important;
+        /* Visible States für alle Toggle-Inhalte */
+        .about-visible,
+        .projects-visible,
+        .contact-visible,
+        .impressum-visible {
+          display: block !important;
+          animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Impressum Styling */
+        .abschluss {
+          padding: 2rem;
+          text-align: center;
+          background: rgba(0, 0, 0, 0.8);
+        }
+
+        .impressum-toggle {
+          font-family: 'Inter', sans-serif;
+          font-size: 1rem;
+          color: rgba(255, 255, 255, 0.7);
+          cursor: pointer;
+          transition: color 0.3s ease;
+          text-decoration: underline;
+        }
+
+        .impressum-toggle:hover {
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        #impressum-content {
+          max-width: 600px;
+          margin: 2rem auto;
+          padding: 2rem;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 1rem;
+          text-align: left;
+        }
+
+        #impressum-content h3 {
+          color: #fff;
+          margin-bottom: 1.5rem;
+          font-family: 'Inter', sans-serif;
+        }
+
+        #impressum-content p {
+          color: rgba(255, 255, 255, 0.8);
+          margin-bottom: 1rem;
+          font-family: 'Inter', sans-serif;
+          line-height: 1.5;
+        }
+
+        #impressum-content strong {
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* FadeIn Animation */
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
           }
-          
-          .hero-content {
-            max-width: 95% !important;
-          }
-          
-          .hero h1 {
-            font-size: 1.3rem !important;
-          }
-          
-          .toggle-buttons {
-            gap: 1.2rem !important;
-            margin: 2.5rem 0 !important;
-            padding: 0 2.5rem !important;
-          }
-          
-          .about-toggle, 
-          .projects-toggle, 
-          .contact-toggle {
-            font-size: 0.85rem !important;
-            padding: 0.6rem 0.8rem !important;
-            width: 75% !important;
-          }
-          
-          .hero .about-content p,
-          .hero .project-card p,
-          .hero .contact-content p {
-            font-size: 0.85rem !important;
-          }
-          
-          .hero .project-card h3 {
-            font-size: 1.1rem !important;
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
     </style>
@@ -523,7 +395,68 @@
   </script>
 
   <!-- JavaScript für Toggle-Funktionen -->
-  <script src="script.js"></script>
+  <script>
+    function toggleAbout() {
+      const aboutContent = document.getElementById('about-content');
+      const projectsContent = document.getElementById('projects-content');
+      const contactContent = document.getElementById('contact-info');
+      
+      // Verstecke andere Inhalte
+      projectsContent.className = 'projects-container projects-hidden';
+      contactContent.className = 'contact-content contact-hidden';
+      
+      // Toggle About
+      if (aboutContent.className.includes('about-hidden')) {
+        aboutContent.className = 'about-content about-visible';
+      } else {
+        aboutContent.className = 'about-content about-hidden';
+      }
+    }
+
+    function toggleProjects() {
+      const aboutContent = document.getElementById('about-content');
+      const projectsContent = document.getElementById('projects-content');
+      const contactContent = document.getElementById('contact-info');
+      
+      // Verstecke andere Inhalte
+      aboutContent.className = 'about-content about-hidden';
+      contactContent.className = 'contact-content contact-hidden';
+      
+      // Toggle Projects
+      if (projectsContent.className.includes('projects-hidden')) {
+        projectsContent.className = 'projects-container projects-visible';
+      } else {
+        projectsContent.className = 'projects-container projects-hidden';
+      }
+    }
+
+    function toggleContact() {
+      const aboutContent = document.getElementById('about-content');
+      const projectsContent = document.getElementById('projects-content');
+      const contactContent = document.getElementById('contact-info');
+      
+      // Verstecke andere Inhalte
+      aboutContent.className = 'about-content about-hidden';
+      projectsContent.className = 'projects-container projects-hidden';
+      
+      // Toggle Contact
+      if (contactContent.className.includes('contact-hidden')) {
+        contactContent.className = 'contact-content contact-visible';
+      } else {
+        contactContent.className = 'contact-content contact-hidden';
+      }
+    }
+
+    function toggleImpressum() {
+      const impressumContent = document.getElementById('impressum-content');
+      
+      if (impressumContent.className.includes('impressum-hidden')) {
+        impressumContent.className = 'impressum-content impressum-visible';
+      } else {
+        impressumContent.className = 'impressum-content impressum-hidden';
+      }
+    }
+  </script>
 
 </body>
 </html>
