@@ -7,14 +7,11 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- CSS einbinden -->
-    <link rel="stylesheet" href="style.css">
     
     <style>
-        /* KOMPLETT BEREINIGTES CSS - NUR DESKTOP */
+        /* BEREINIGTES CSS - NUR DESKTOP */
 
-        /* 🖼️ Vollbild-Hintergrundbild */
+        /* Hintergrundbild */
         #bg-image {
           position: fixed;
           top: 0;
@@ -26,7 +23,7 @@
           pointer-events: none;
         }
         
-        /* Three.js Canvas Hintergrund */
+        /* Three.js Canvas */
         #bgCanvas {
           position: fixed;
           top: 0;
@@ -38,13 +35,13 @@
           pointer-events: none;
         }
         
-        /* Überschreibung für scrollbares Layout */
+        /* Body Scrolling */
         body {
           overflow-x: hidden;
           overflow-y: auto !important;
         }
         
-        /* DESKTOP STYLES */
+        /* Hero Title */
         .hero h1 {
           font-family: 'Inter', sans-serif !important;
           font-weight: 400 !important;
@@ -52,10 +49,10 @@
           line-height: 1.2 !important;
           margin-bottom: 2rem !important;
           color: #ffffff !important;
-          text-align: center !important;;
+          text-align: center !important;
         }
         
-        /* Toggle Buttons Desktop */
+        /* Toggle Buttons */
         .toggle-buttons {
           display: flex;
           justify-content: center;
@@ -79,8 +76,35 @@
           min-width: 120px;
         }
 
-        /* Projects Desktop - NEBENEINANDER MITTIG */
-        .hero .projects-visible {
+        .about-toggle:hover,
+        .projects-toggle:hover,
+        .contact-toggle:hover {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* About Content */
+        .about-content {
+          max-width: 800px;
+          margin: 2rem auto;
+          padding: 2rem;
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 1rem;
+          text-align: left;
+        }
+
+        .about-content p {
+          font-family: 'Inter', sans-serif;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.85);
+          margin-bottom: 1.5rem;
+          font-weight: 300;
+        }
+
+        /* Projects Content */
+        .projects-visible {
           display: flex !important;
           flex-direction: row !important;
           justify-content: center !important;
@@ -92,7 +116,7 @@
           max-width: 1100px !important;
         }
 
-        .hero .project-card {
+        .project-card {
           background: rgba(255, 255, 255, 0.08) !important;
           backdrop-filter: blur(20px) !important;
           border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -108,13 +132,13 @@
           text-align: left !important;
         }
 
-        .hero .project-card:hover {
+        .project-card:hover {
           transform: translateY(-5px) !important;
           background: rgba(255, 255, 255, 0.12) !important;
           border-color: rgba(142, 202, 230, 0.3) !important;
         }
 
-        .hero .project-card h3 {
+        .project-card h3 {
           font-family: 'Inter', sans-serif !important;
           font-size: 1.4rem !important;
           color: #fff !important;
@@ -122,23 +146,22 @@
           font-weight: 500 !important;
         }
 
-        .hero .project-card p {
+        .project-card p {
           font-family: 'Inter', sans-serif !important;
           font-size: 1.05rem !important;
           line-height: 1.75 !important;
           color: rgba(255, 255, 255, 0.68) !important;
           margin-bottom: 2.5rem !important;
           font-weight: 200 !important;
-          font-style: normal !important;
           transition: all 0.4s ease !important;
         }
 
-        .hero .project-card:hover p {
+        .project-card:hover p {
           color: rgba(255, 255, 255, 0.78) !important;
           transform: translateY(-2px) !important;
         }
 
-        .hero .project-card .project-role {
+        .project-card .project-role {
           font-family: 'Inter', sans-serif !important;
           font-size: 0.9rem !important;
           color: rgba(255, 255, 255, 0.8) !important;
@@ -148,10 +171,33 @@
           padding-top: 1rem !important;
           margin-top: 1rem !important;
         }
-        
-        /* FEHLENDE CSS-KLASSEN */
 
-        /* Hidden States für alle Toggle-Inhalte */
+        /* Contact Content */
+        .contact-content {
+          max-width: 400px;
+          margin: 2rem auto;
+          padding: 2rem;
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 1rem;
+          text-align: center;
+        }
+
+        .contact-content p {
+          font-family: 'Inter', sans-serif;
+          font-size: 1.1rem;
+          color: rgba(255, 255, 255, 0.9);
+          margin-bottom: 1rem;
+          font-weight: 400;
+        }
+
+        .contact-content strong {
+          color: #ffffff;
+          font-weight: 500;
+        }
+
+        /* Toggle States */
         .about-hidden,
         .projects-hidden,
         .contact-hidden,
@@ -159,7 +205,6 @@
           display: none !important;
         }
 
-        /* Visible States für alle Toggle-Inhalte */
         .about-visible,
         .projects-visible,
         .contact-visible,
@@ -168,7 +213,7 @@
           animation: fadeIn 0.5s ease-in-out;
         }
 
-        /* Impressum Styling */
+        /* Impressum */
         .abschluss {
           padding: 2rem;
           text-align: center;
@@ -214,7 +259,7 @@
           color: rgba(255, 255, 255, 0.9);
         }
 
-        /* FadeIn Animation */
+        /* Animation */
         @keyframes fadeIn {
           from {
             opacity: 0;
@@ -229,26 +274,26 @@
 </head>
 <body id="top">
 
-  <!-- Hintergrund-Bild statt Video -->
+  <!-- Hintergrund-Bild -->
   <img src="IMG_5305.jpg" id="bg-image" alt="Hintergrund" />
 
-  <!-- Three.js Hintergrund Canvas -->
+  <!-- Three.js Canvas -->
   <canvas id="bgCanvas"></canvas>
 
-  <!-- Hero + About + Projects Section kombiniert -->
+  <!-- Hero Section -->
   <section class="hero" id="projekte">
     <div class="hero-content">
       <h4>Jazan Qutshan</h4>
       <h1>Architekt strategischer Systeme</h1>
       
-      <!-- Toggle Buttons nebeneinander -->
+      <!-- Toggle Buttons -->
       <div class="toggle-buttons">
         <div class="about-toggle" onclick="toggleAbout()">About</div>
         <div class="projects-toggle" onclick="toggleProjects()">Projects</div>
         <div class="contact-toggle" onclick="toggleContact()">Reach me</div>
       </div>
       
-      <!-- Versteckter About-Inhalt -->
+      <!-- About Content -->
       <div id="about-content" class="about-content about-hidden">
         <p>
           Jazan Qutshan ist ein kreativer Architekt digitaler Systeme.  
@@ -273,11 +318,9 @@
         </p>
       </div>
       
-      <!-- Versteckter Projects-Inhalt -->
-      <div id="projects-content" class="projects-container projects-hidden">
-        <!-- 1. ONTHEWAY COLLECTIVE -->
+      <!-- Projects Content -->
+      <div id="projects-content" class="projects-hidden">
         <div class="project-card">
-          <div class="glossy-overlay"></div>
           <h3>ONTHEWAY COLLECTIVE</h3>
           <p>
             ONTHEWAY COLLECTIVE versteht sich als kreative Plattform an der Schnittstelle von Musik, visueller Kultur und künstlerischer Entwicklung.<br><br>
@@ -289,9 +332,7 @@
           <span class="project-role">Aufbau, Coaching, Creative Direction, Künstlerauswahl, Ablaufregie, Community</span>
         </div>
 
-        <!-- 2. 7AGENT -->
         <div class="project-card">
-          <div class="glossy-overlay"></div>
           <h3>7A-AGENT</h3>
           <p>
             7A-AGENT ist ein modulares KI-Framework zur Automatisierung realer Geschäftsprozesse und zur Entwicklung intelligenter Systemarchitekturen.<br><br>
@@ -303,7 +344,7 @@
         </div>
       </div>
       
-      <!-- Versteckter Contact-Inhalt -->
+      <!-- Contact Content -->
       <div id="contact-info" class="contact-content contact-hidden">
         <p><strong>Telefon:</strong> +49 176 629 75 947</p>
         <p><strong>E-Mail:</strong> yazan.qutshan@icloud.com</p>
@@ -311,32 +352,32 @@
     </div>
   </section>
 
-<section class="abschluss">
-  <div class="impressum-container">
-    <div class="impressum-toggle" onclick="toggleImpressum()">Impressum</div>
-    
-    <!-- Versteckter Impressum-Inhalt -->
-    <div id="impressum-content" class="impressum-hidden">
-      <h3>Impressum</h3>
-      <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-      <p>Jazan Qutshan</p>
-      <p><strong>Kontakt:</strong><br>
-      Telefon: +49 176 629 75 947<br>
-      E-Mail: yazan.qutshan@icloud.com</p>
+  <!-- Impressum -->
+  <section class="abschluss">
+    <div class="impressum-container">
+      <div class="impressum-toggle" onclick="toggleImpressum()">Impressum</div>
       
-      <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-      Jazan Qutshan</p>
+      <div id="impressum-content" class="impressum-hidden">
+        <h3>Impressum</h3>
+        <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+        <p>Jazan Qutshan</p>
+        <p><strong>Kontakt:</strong><br>
+        Telefon: +49 176 629 75 947<br>
+        E-Mail: yazan.qutshan@icloud.com</p>
+        
+        <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+        Jazan Qutshan</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- Three.js Script für Wellen-Effekte über Video -->
+  <!-- Three.js Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
   <script>
     const canvas = document.getElementById('bgCanvas');
     const renderer = new THREE.WebGLRenderer({ 
       canvas: canvas,
-      alpha: true // Transparenter Hintergrund
+      alpha: true
     });
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -362,15 +403,13 @@
         void main() {
           vec2 uv = gl_FragCoord.xy / uRes;
           
-          // Wellen-Effekte
           float wave1 = sin((uv.y + uTime * 0.5) * 8.0) * 0.02;
           float wave2 = cos((uv.x + uTime * 0.3) * 10.0) * 0.02;
           
-          // Farbiger Overlay-Effekt
-          vec3 color = vec3(0.1, 0.3, 0.6); // Blauton
+          vec3 color = vec3(0.1, 0.3, 0.6);
           float intensity = sin(uv.x * 5.0 + uTime) * sin(uv.y * 5.0 + uTime * 1.2) * 0.1;
           
-          gl_FragColor = vec4(color, intensity + 0.1); // Sehr transparenter Overlay
+          gl_FragColor = vec4(color, intensity + 0.1);
         }
       `
     });
@@ -394,18 +433,16 @@
     animate(0);
   </script>
 
-  <!-- JavaScript für Toggle-Funktionen -->
+  <!-- Toggle Functions -->
   <script>
     function toggleAbout() {
       const aboutContent = document.getElementById('about-content');
       const projectsContent = document.getElementById('projects-content');
       const contactContent = document.getElementById('contact-info');
       
-      // Verstecke andere Inhalte
-      projectsContent.className = 'projects-container projects-hidden';
+      projectsContent.className = 'projects-hidden';
       contactContent.className = 'contact-content contact-hidden';
       
-      // Toggle About
       if (aboutContent.className.includes('about-hidden')) {
         aboutContent.className = 'about-content about-visible';
       } else {
@@ -418,15 +455,13 @@
       const projectsContent = document.getElementById('projects-content');
       const contactContent = document.getElementById('contact-info');
       
-      // Verstecke andere Inhalte
       aboutContent.className = 'about-content about-hidden';
       contactContent.className = 'contact-content contact-hidden';
       
-      // Toggle Projects
       if (projectsContent.className.includes('projects-hidden')) {
-        projectsContent.className = 'projects-container projects-visible';
+        projectsContent.className = 'projects-visible';
       } else {
-        projectsContent.className = 'projects-container projects-hidden';
+        projectsContent.className = 'projects-hidden';
       }
     }
 
@@ -435,11 +470,9 @@
       const projectsContent = document.getElementById('projects-content');
       const contactContent = document.getElementById('contact-info');
       
-      // Verstecke andere Inhalte
       aboutContent.className = 'about-content about-hidden';
-      projectsContent.className = 'projects-container projects-hidden';
+      projectsContent.className = 'projects-hidden';
       
-      // Toggle Contact
       if (contactContent.className.includes('contact-hidden')) {
         contactContent.className = 'contact-content contact-visible';
       } else {
