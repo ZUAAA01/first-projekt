@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
+        /* KOMPLETT BEREINIGTES CSS - ALLE DOPPELUNGEN ENTFERNT */
+
         /* 🖼️ Vollbild-Hintergrundbild */
         #bg-image {
           position: fixed;
@@ -26,24 +28,23 @@
         
         /* Three.js Canvas Hintergrund */
         #bgCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -5;
-            opacity: 0.3;
-            pointer-events: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: -5;
+          opacity: 0.3;
+          pointer-events: none;
         }
         
         /* Überschreibung für scrollbares Layout */
         body {
-            overflow-x: hidden;
-            overflow-y: auto !important;
+          overflow-x: hidden;
+          overflow-y: auto !important;
         }
         
-        /* CSS STRUKTUR KORRIGIERT */
-        /* Desktop Styles zuerst */
+        /* DESKTOP STYLES */
         .hero h1 {
           font-family: 'Inter', sans-serif !important;
           font-weight: 400 !important;
@@ -77,8 +78,12 @@
           padding: 0.5rem 1rem;
           min-width: 120px;
         }
-        
-        /* Project Cards Desktop */
+
+        /* Projects Desktop */
+        .hero .projects-hidden {
+          display: none;
+        }
+
         .hero .projects-visible {
           display: flex;
           flex-direction: row;
@@ -92,65 +97,64 @@
         }
 
         .hero .project-card {
-          background: rgba(255, 255, 255, 0.08);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 1rem;
-          padding: 2rem;
-          margin: 0;
-          position: relative;
-          transition: all 0.3s ease;
-          width: 100%;
-          flex: 1;
-          min-width: 300px;
-          max-width: 350px;
-          text-align: left;
+          background: rgba(255, 255, 255, 0.08) !important;
+          backdrop-filter: blur(20px) !important;
+          border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          border-radius: 1rem !important;
+          padding: 2rem !important;
+          margin: 0 !important;
+          position: relative !important;
+          transition: all 0.3s ease !important;
+          width: 100% !important;
+          flex: 1 !important;
+          min-width: 300px !important;
+          max-width: 350px !important;
+          text-align: left !important;
         }
 
         .hero .project-card:hover {
-          transform: translateY(-5px);
-          background: rgba(255, 255, 255, 0.12);
-          border-color: rgba(142, 202, 230, 0.3);
+          transform: translateY(-5px) !important;
+          background: rgba(255, 255, 255, 0.12) !important;
+          border-color: rgba(142, 202, 230, 0.3) !important;
         }
 
         .hero .project-card h3 {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.4rem;
-          color: #fff;
-          margin-bottom: 2.8rem;
-          font-weight: 500;
+          font-family: 'Inter', sans-serif !important;
+          font-size: 1.4rem !important;
+          color: #fff !important;
+          margin-bottom: 2.8rem !important;
+          font-weight: 500 !important;
         }
 
         .hero .project-card p {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.05rem;
-          line-height: 1.75;
-          color: rgba(255, 255, 255, 0.68);
-          margin-bottom: 2.5rem;
-          font-weight: 200;
-          font-style: normal;
-          transition: all 0.4s ease;
+          font-family: 'Inter', sans-serif !important;
+          font-size: 1.05rem !important;
+          line-height: 1.75 !important;
+          color: rgba(255, 255, 255, 0.68) !important;
+          margin-bottom: 2.5rem !important;
+          font-weight: 200 !important;
+          font-style: normal !important;
+          transition: all 0.4s ease !important;
         }
 
         .hero .project-card:hover p {
-          color: rgba(255, 255, 255, 0.78);
-          transform: translateY(-2px);
+          color: rgba(255, 255, 255, 0.78) !important;
+          transform: translateY(-2px) !important;
         }
 
         .hero .project-card .project-role {
-          font-family: 'Inter', sans-serif;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 500;
-          opacity: 0.8;
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          padding-top: 1rem;
-          margin-top: 1rem;
+          font-family: 'Inter', sans-serif !important;
+          font-size: 0.9rem !important;
+          color: rgba(255, 255, 255, 0.8) !important;
+          font-weight: 500 !important;
+          opacity: 0.8 !important;
+          border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+          padding-top: 1rem !important;
+          margin-top: 1rem !important;
         }
         
-        /* Mobile-spezifische Optimierungen für RAM-Performance */
+        /* MOBILE STYLES - NUR EINMAL DEFINIERT */
         @media (max-width: 768px) {
-          /* Hero Section - mehr Abstand, weniger nah */
           .hero {
             min-height: 100vh !important;
             padding: 2rem 1.5rem !important;
@@ -162,7 +166,6 @@
             margin: 0 auto !important;
           }
           
-          /* Haupttexte - kleinere Schriftgrößen für "rausgezoomt" Effekt */
           .hero h4 {
             font-size: 0.9rem !important;
             margin-bottom: 1rem !important;
@@ -176,10 +179,10 @@
             margin-bottom: 1.5rem !important;
           }
           
-          /* Toggle Buttons - VERTIKAL für Mobile */
+          /* Toggle Buttons Mobile - VERTIKAL */
           .toggle-buttons {
             display: flex !important;
-            flex-direction: column !important; /* VERTIKAL */
+            flex-direction: column !important;
             gap: 1.5rem !important;
             align-items: center !important;
             margin: 3rem 0 !important;
@@ -199,571 +202,61 @@
             border-radius: 0.5rem !important;
             background: rgba(255, 255, 255, 0.05) !important;
           }
-        }
-        
-        /* Extra kleine Smartphones - noch mehr "rausgezoomt" */
-        @media (max-width: 480px) {
-          .hero {
-            padding: 1.5rem 1rem !important; /* Mehr Padding */
-          }
           
-          .hero-content {
-            max-width: 80% !important; /* Noch schmaler */
-          }
-          
-          .hero h1 {
-            font-family: 'Inter', sans-serif !important; /* Inter Font */
-            font-weight: 400 !important;
-            font-size: 1.3rem !important; /* Noch kleiner */
-          }
-          
-          .toggle-buttons {
-            gap: 1.2rem !important;
-            margin: 2.5rem 0 !important;
-            padding: 0 2.5rem !important;
-          }
-          
-          .about-toggle, 
-          .projects-toggle, 
-          .contact-toggle {
-            font-size: 0.85rem !important;
-            padding: 0.6rem 0.8rem !important;
-            width: 75% !important;
-          }
-        }
-        
-        /* Projects Content in Hero Section - Desktop Styles KORRIGIERT */
-        .hero .projects-hidden {
-          display: none;
-          animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .hero .projects-visible {
-          display: flex;
-          flex-direction: row; /* Desktop: nebeneinander */
-          justify-content: center; /* MITTIG ZENTRIERT */
-          align-items: flex-start;
-          gap: 2rem;
-          animation: fadeIn 0.5s ease-in-out;
-          margin: 1.5rem auto; /* Auto-Margin für Zentrierung */
-          width: 100%;
-          max-width: 1100px;
-        }
-
-        /* Project Cards in Hero Section - Desktop Styles */
-        .hero .project-card {
-          background: rgba(255, 255, 255, 0.08);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 1rem;
-          padding: 2rem;
-          margin: 0;
-          position: relative;
-          transition: all 0.3s ease;
-          width: 100%;
-          flex: 1;
-          min-width: 300px;
-          max-width: 350px; /* Maximale Breite für bessere Zentrierung */
-          text-align: left;
-        }
-
-        .hero .project-card:hover {
-          transform: translateY(-5px);
-          background: rgba(255, 255, 255, 0.12);
-          border-color: rgba(142, 202, 230, 0.3);
-        }
-
-        .hero .project-card h3 {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.4rem;
-          color: #fff;
-          margin-bottom: 2.8rem;
-          font-weight: 500;
-        }
-
-        .hero .project-card p {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.05rem;
-          line-height: 1.75;
-          color: rgba(255, 255, 255, 0.68);
-          margin-bottom: 2.5rem;
-          font-weight: 200;
-          font-style: normal;
-          transition: all 0.4s ease;
-        }
-
-        .hero .project-card:hover p {
-          color: rgba(255, 255, 255, 0.78);
-          transform: translateY(-2px);
-        }
-
-        .hero .project-card .project-role {
-          font-family: 'Inter', sans-serif;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 500;
-          opacity: 0.8;
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          padding-top: 1rem;
-          margin-top: 1rem;
-        }
-        
-        /* Toggle Buttons - zentriert */
-        .toggle-buttons {
-          display: flex;
-          justify-content: center; /* Horizontal zentriert */
-          align-items: center; /* Vertikal zentriert */
-          gap: 3rem;
-          margin: 3rem 0;
-          width: 100%;
-        }
-
-        .about-toggle, 
-        .projects-toggle, 
-        .contact-toggle {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.5rem;
-          color: #ffffff;
-          cursor: pointer;
-          transition: color 0.3s ease;
-          text-align: center;
-          font-weight: 400;
-          padding: 0.5rem 1rem;
-          min-width: 120px; /* Einheitliche Mindestbreite */
-        }
-
-        @media (max-width: 768px) {
-          /* Hero Section - mehr Abstand, weniger nah */
-          .hero {
-            min-height: 100vh !important;
-            padding: 2rem 1.5rem !important;
-          }
-          
-          .hero-content {
-            max-width: 85% !important;
-            padding: 1rem !important;
-            margin: 0 auto !important;
-          }
-          
-          /* Haupttexte - kleinere Schriftgrößen für "rausgezoomt" Effekt */
-          .hero h4 {
-            font-size: 0.9rem !important;
-            margin-bottom: 1rem !important;
-          }
-          
-          .hero h1 {
-            font-family: 'Inter', sans-serif !important;
-            font-weight: 400 !important;
-            font-size: 1.5rem !important;
-            line-height: 1.3 !important;
-            margin-bottom: 1.5rem !important;
-          }
-          
-          /* Toggle Buttons - VERTIKAL für Mobile */
-          .toggle-buttons {
-            display: flex !important;
-            flex-direction: column !important; /* VERTIKAL */
-            gap: 1.5rem !important;
-            align-items: center !important;
-            margin: 3rem 0 !important;
-            width: 100% !important;
-            padding: 0 2rem !important;
-          }
-          
-          .about-toggle, 
-          .projects-toggle, 
-          .contact-toggle {
-            width: 70% !important;
-            max-width: 200px !important;
-            font-size: 0.9rem !important;
-            padding: 0.7rem 1rem !important;
-            text-align: center !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            border-radius: 0.5rem !important;
+          /* Projects Mobile */
+          .hero .projects-visible {
+            flex-direction: column !important;
+            gap: 2rem !important;
+            max-height: 70vh !important;
+            overflow-y: auto !important;
+            padding: 1.5rem 1rem !important;
+            margin: 2rem auto !important;
+            width: 90% !important;
             background: rgba(255, 255, 255, 0.05) !important;
-          }
-        }
-        
-        /* Extra kleine Smartphones - noch mehr "rausgezoomt" */
-        @media (max-width: 480px) {
-          .hero {
-            padding: 1.5rem 1rem !important; /* Mehr Padding */
+            backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 1rem !important;
           }
           
-          .hero-content {
-            max-width: 80% !important; /* Noch schmaler */
-          }
-          
-          .hero h1 {
-            font-family: 'Inter', sans-serif !important; /* Inter Font */
-            font-weight: 400 !important;
-            font-size: 1.3rem !important; /* Noch kleiner */
-          }
-          
-          .toggle-buttons {
-            gap: 1.2rem !important;
-            margin: 2.5rem 0 !important;
-            padding: 0 2.5rem !important;
-          }
-          
-          .about-toggle, 
-          .projects-toggle, 
-          .contact-toggle {
-            font-size: 0.85rem !important;
-            padding: 0.6rem 0.8rem !important;
-            width: 75% !important;
-          }
-        }
-        
-        /* Projects Content in Hero Section - Desktop Styles KORRIGIERT */
-        .hero .projects-hidden {
-          display: none;
-          animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .hero .projects-visible {
-          display: flex;
-          flex-direction: row; /* Desktop: nebeneinander */
-          justify-content: center; /* MITTIG ZENTRIERT */
-          align-items: flex-start;
-          gap: 2rem;
-          animation: fadeIn 0.5s ease-in-out;
-          margin: 1.5rem auto; /* Auto-Margin für Zentrierung */
-          width: 100%;
-          max-width: 1100px;
-        }
-
-        /* Project Cards in Hero Section - Desktop Styles */
-        .hero .project-card {
-          background: rgba(255, 255, 255, 0.08);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 1rem;
-          padding: 2rem;
-          margin: 0;
-          position: relative;
-          transition: all 0.3s ease;
-          width: 100%;
-          flex: 1;
-          min-width: 300px;
-          max-width: 350px; /* Maximale Breite für bessere Zentrierung */
-          text-align: left;
-        }
-
-        .hero .project-card:hover {
-          transform: translateY(-5px);
-          background: rgba(255, 255, 255, 0.12);
-          border-color: rgba(142, 202, 230, 0.3);
-        }
-
-        .hero .project-card h3 {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.4rem;
-          color: #fff;
-          margin-bottom: 2.8rem;
-          font-weight: 500;
-        }
-
-        .hero .project-card p {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.05rem;
-          line-height: 1.75;
-          color: rgba(255, 255, 255, 0.68);
-          margin-bottom: 2.5rem;
-          font-weight: 200;
-          font-style: normal;
-          transition: all 0.4s ease;
-        }
-
-        .hero .project-card:hover p {
-          color: rgba(255, 255, 255, 0.78);
-          transform: translateY(-2px);
-        }
-
-        .hero .project-card .project-role {
-          font-family: 'Inter', sans-serif;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 500;
-          opacity: 0.8;
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          padding-top: 1rem;
-          margin-top: 1rem;
-        }
-        
-        /* Toggle Buttons - zentriert */
-        .toggle-buttons {
-          display: flex;
-          justify-content: center; /* Horizontal zentriert */
-          align-items: center; /* Vertikal zentriert */
-          gap: 3rem;
-          margin: 3rem 0;
-          width: 100%;
-        }
-
-        .about-toggle, 
-        .projects-toggle, 
-        .contact-toggle {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.5rem;
-          color: #ffffff;
-          cursor: pointer;
-          transition: color 0.3s ease;
-          text-align: center;
-          font-weight: 400;
-          padding: 0.5rem 1rem;
-          min-width: 120px; /* Einheitliche Mindestbreite */
-        }
-
-        @media (max-width: 768px) {
-          /* Hero Section - mehr Abstand, weniger nah */
-          .hero {
-            min-height: 100vh !important;
-            padding: 2rem 1.5rem !important;
-          }
-          
-          .hero-content {
-            max-width: 85% !important;
-            padding: 1rem !important;
-            margin: 0 auto !important;
-          }
-          
-          /* Haupttexte - kleinere Schriftgrößen für "rausgezoomt" Effekt */
-          .hero h4 {
-            font-size: 0.9rem !important;
-            margin-bottom: 1rem !important;
-          }
-          
-          .hero h1 {
-            font-family: 'Inter', sans-serif !important;
-            font-weight: 400 !important;
-            font-size: 1.5rem !important;
-            line-height: 1.3 !important;
-            margin-bottom: 1.5rem !important;
-          }
-          
-          /* Toggle Buttons - VERTIKAL für Mobile */
-          .toggle-buttons {
-            display: flex !important;
-            flex-direction: column !important; /* VERTIKAL */
-            gap: 1.5rem !important;
-            align-items: center !important;
-            margin: 3rem 0 !important;
+          .hero .project-card {
+            flex: none !important;
             width: 100% !important;
-            padding: 0 2rem !important;
+            max-width: none !important;
+            min-width: auto !important;
+            padding: 1.5rem !important;
+            margin-bottom: 0 !important;
           }
           
-          .about-toggle, 
-          .projects-toggle, 
-          .contact-toggle {
-            width: 70% !important;
-            max-width: 200px !important;
-            font-size: 0.9rem !important;
-            padding: 0.7rem 1rem !important;
-            text-align: center !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            border-radius: 0.5rem !important;
-            background: rgba(255, 255, 255, 0.05) !important;
-          }
-        }
-        
-        /* Extra kleine Smartphones - noch mehr "rausgezoomt" */
-        @media (max-width: 480px) {
-          .hero {
-            padding: 1.5rem 1rem !important; /* Mehr Padding */
-          }
-          
-          .hero-content {
-            max-width: 80% !important; /* Noch schmaler */
-          }
-          
-          .hero h1 {
-            font-family: 'Inter', sans-serif !important; /* Inter Font */
-            font-weight: 400 !important;
-            font-size: 1.3rem !important; /* Noch kleiner */
-          }
-          
-          .toggle-buttons {
-            gap: 1.2rem !important;
-            margin: 2.5rem 0 !important;
-            padding: 0 2.5rem !important;
-          }
-          
-          .about-toggle, 
-          .projects-toggle, 
-          .contact-toggle {
-            font-size: 0.85rem !important;
-            padding: 0.6rem 0.8rem !important;
-            width: 75% !important;
-          }
-        }
-        
-        /* Projects Content in Hero Section - Desktop Styles KORRIGIERT */
-        .hero .projects-hidden {
-          display: none;
-          animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .hero .projects-visible {
-          display: flex;
-          flex-direction: row; /* Desktop: nebeneinander */
-          justify-content: center; /* MITTIG ZENTRIERT */
-          align-items: flex-start;
-          gap: 2rem;
-          animation: fadeIn 0.5s ease-in-out;
-          margin: 1.5rem auto; /* Auto-Margin für Zentrierung */
-          width: 100%;
-          max-width: 1100px;
-        }
-
-        /* Project Cards in Hero Section - Desktop Styles */
-        .hero .project-card {
-          background: rgba(255, 255, 255, 0.08);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 1rem;
-          padding: 2rem;
-          margin: 0;
-          position: relative;
-          transition: all 0.3s ease;
-          width: 100%;
-          flex: 1;
-          min-width: 300px;
-          max-width: 350px; /* Maximale Breite für bessere Zentrierung */
-          text-align: left;
-        }
-
-        .hero .project-card:hover {
-          transform: translateY(-5px);
-          background: rgba(255, 255, 255, 0.12);
-          border-color: rgba(142, 202, 230, 0.3);
-        }
-
-        .hero .project-card h3 {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.4rem;
-          color: #fff;
-          margin-bottom: 2.8rem;
-          font-weight: 500;
-        }
-
-        .hero .project-card p {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.05rem;
-          line-height: 1.75;
-          color: rgba(255, 255, 255, 0.68);
-          margin-bottom: 2.5rem;
-          font-weight: 200;
-          font-style: normal;
-          transition: all 0.4s ease;
-        }
-
-        .hero .project-card:hover p {
-          color: rgba(255, 255, 255, 0.78);
-          transform: translateY(-2px);
-        }
-
-        .hero .project-card .project-role {
-          font-family: 'Inter', sans-serif;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 500;
-          opacity: 0.8;
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          padding-top: 1rem;
-          margin-top: 1rem;
-        }
-        
-        /* Toggle Buttons - zentriert */
-        .toggle-buttons {
-          display: flex;
-          justify-content: center; /* Horizontal zentriert */
-          align-items: center; /* Vertikal zentriert */
-          gap: 3rem;
-          margin: 3rem 0;
-          width: 100%;
-        }
-
-        .about-toggle, 
-        .projects-toggle, 
-        .contact-toggle {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.5rem;
-          color: #ffffff;
-          cursor: pointer;
-          transition: color 0.3s ease;
-          text-align: center;
-          font-weight: 400;
-          padding: 0.5rem 1rem;
-          min-width: 120px; /* Einheitliche Mindestbreite */
-        }
-
-        @media (max-width: 768px) {
-          /* Hero Section - mehr Abstand, weniger nah */
-          .hero {
-            min-height: 100vh !important;
-            padding: 2rem 1.5rem !important;
-          }
-          
-          .hero-content {
-            max-width: 85% !important;
-            padding: 1rem !important;
-            margin: 0 auto !important;
-          }
-          
-          /* Haupttexte - kleinere Schriftgrößen für "rausgezoomt" Effekt */
-          .hero h4 {
-            font-size: 0.9rem !important;
-            margin-bottom: 1rem !important;
-          }
-          
-          .hero h1 {
-            font-family: 'Inter', sans-serif !important;
-            font-weight: 400 !important;
-            font-size: 1.5rem !important;
-            line-height: 1.3 !important;
+          .hero .project-card h3 {
+            font-size: 1.1rem !important;
             margin-bottom: 1.5rem !important;
-          }
-          
-          /* Toggle Buttons - VERTIKAL für Mobile */
-          .toggle-buttons {
-            display: flex !important;
-            flex-direction: column !important; /* VERTIKAL */
-            gap: 1.5rem !important;
-            align-items: center !important;
-            margin: 3rem 0 !important;
-            width: 100% !important;
-            padding: 0 2rem !important;
-          }
-          
-          .about-toggle, 
-          .projects-toggle, 
-          .contact-toggle {
-            width: 70% !important;
-            max-width: 200px !important;
-            font-size: 0.9rem !important;
-            padding: 0.7rem 1rem !important;
             text-align: center !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            border-radius: 0.5rem !important;
-            background: rgba(255, 255, 255, 0.05) !important;
+          }
+          
+          .hero .project-card p {
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 1.2rem !important;
+          }
+          
+          .hero .project-card .project-role {
+            font-size: 0.7rem !important;
+            text-align: center !important;
           }
         }
         
-        /* Extra kleine Smartphones - noch mehr "rausgezoomt" */
+        /* Extra kleine Smartphones */
         @media (max-width: 480px) {
           .hero {
-            padding: 1.5rem 1rem !important; /* Mehr Padding */
+            padding: 1.5rem 1rem !important;
           }
           
           .hero-content {
-            max-width: 80% !important; /* Noch schmaler */
+            max-width: 80% !important;
           }
           
           .hero h1 {
-            font-family: 'Inter', sans-serif !important; /* Inter Font */
-            font-weight: 400 !important;
-            font-size: 1.3rem !important; /* Noch kleiner */
+            font-size: 1.3rem !important;
           }
           
           .toggle-buttons {
@@ -779,106 +272,6 @@
             padding: 0.6rem 0.8rem !important;
             width: 75% !important;
           }
-        }
-        
-        /* Projects Content in Hero Section - Desktop Styles KORRIGIERT */
-        .hero .projects-hidden {
-          display: none;
-          animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .hero .projects-visible {
-          display: flex;
-          flex-direction: row; /* Desktop: nebeneinander */
-          justify-content: center; /* MITTIG ZENTRIERT */
-          align-items: flex-start;
-          gap: 2rem;
-          animation: fadeIn 0.5s ease-in-out;
-          margin: 1.5rem auto; /* Auto-Margin für Zentrierung */
-          width: 100%;
-          max-width: 1100px;
-        }
-
-        /* Project Cards in Hero Section - Desktop Styles */
-        .hero .project-card {
-          background: rgba(255, 255, 255, 0.08);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 1rem;
-          padding: 2rem;
-          margin: 0;
-          position: relative;
-          transition: all 0.3s ease;
-          width: 100%;
-          flex: 1;
-          min-width: 300px;
-          max-width: 350px; /* Maximale Breite für bessere Zentrierung */
-          text-align: left;
-        }
-
-        .hero .project-card:hover {
-          transform: translateY(-5px);
-          background: rgba(255, 255, 255, 0.12);
-          border-color: rgba(142, 202, 230, 0.3);
-        }
-
-        .hero .project-card h3 {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.4rem;
-          color: #fff;
-          margin-bottom: 2.8rem;
-          font-weight: 500;
-        }
-
-        .hero .project-card p {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.05rem;
-          line-height: 1.75;
-          color: rgba(255, 255, 255, 0.68);
-          margin-bottom: 2.5rem;
-          font-weight: 200;
-          font-style: normal;
-          transition: all 0.4s ease;
-        }
-
-        .hero .project-card:hover p {
-          color: rgba(255, 255, 255, 0.78);
-          transform: translateY(-2px);
-        }
-
-        .hero .project-card .project-role {
-          font-family: 'Inter', sans-serif;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 500;
-          opacity: 0.8;
-          border-top: 1px solid rgba(255, 255, 255, 0.15);
-          padding-top: 1rem;
-          margin-top: 1rem;
-        }
-        
-        /* Toggle Buttons - zentriert */
-        .toggle-buttons {
-          display: flex;
-          justify-content: center; /* Horizontal zentriert */
-          align-items: center; /* Vertikal zentriert */
-          gap: 3rem;
-          margin: 3rem 0;
-          width: 100%;
-        }
-
-        .about-toggle, 
-        .projects-toggle, 
-        .contact-toggle {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.5rem;
-          color: #ffffff;
-          cursor: pointer;
-          transition: color 0.3s ease;
-          text-align: center;
-          font-weight: 400;
-          padding: 0.5rem 1rem;
-          min-width: 120px; /* Einheitliche Mindestbreite */
         }
     </style>
 </head>
