@@ -153,7 +153,7 @@
           margin-top: 1rem !important;
         }
         
-        /* MOBILE STYLES - NUR EINMAL DEFINIERT */
+        /* MOBILE STYLES - OHNE CONTAINER-LAYOUTS */
         @media (max-width: 768px) {
           .hero {
             min-height: 100vh !important;
@@ -161,7 +161,7 @@
           }
           
           .hero-content {
-            max-width: 85% !important;
+            max-width: 90% !important;
             padding: 1rem !important;
             margin: 0 auto !important;
           }
@@ -203,48 +203,118 @@
             background: rgba(255, 255, 255, 0.05) !important;
           }
           
-          /* Projects Mobile */
-          .hero .projects-visible {
-            flex-direction: column !important;
-            gap: 2rem !important;
-            max-height: 70vh !important;
-            overflow-y: auto !important;
-            padding: 1.5rem 1rem !important;
+          /* ABOUT CONTENT - DIREKT AUF SEITE */
+          .hero .about-content {
+            background: none !important;
+            backdrop-filter: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 2rem 0 !important;
             margin: 2rem auto !important;
-            width: 90% !important;
-            background: rgba(255, 255, 255, 0.05) !important;
-            backdrop-filter: blur(15px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 1rem !important;
+            max-width: 100% !important;
+            max-height: none !important;
+            overflow-y: visible !important;
+            box-shadow: none !important;
+          }
+          
+          .hero .about-content p {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.9rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 1.5rem !important;
+            font-weight: 300 !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+            text-align: left !important;
+            padding: 0 !important;
+          }
+          
+          /* PROJECTS CONTENT - DIREKT AUF SEITE */
+          .hero .projects-visible {
+            display: block !important;
+            background: none !important;
+            backdrop-filter: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 2rem 0 !important;
+            margin: 2rem auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            max-height: none !important;
+            overflow-y: visible !important;
           }
           
           .hero .project-card {
-            flex: none !important;
+            background: none !important;
+            backdrop-filter: none !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 0 !important;
+            padding: 2rem 0 !important;
+            margin: 0 0 2rem 0 !important;
             width: 100% !important;
             max-width: none !important;
             min-width: auto !important;
-            padding: 1.5rem !important;
-            margin-bottom: 0 !important;
+            flex: none !important;
+          }
+          
+          .hero .project-card:last-child {
+            border-bottom: none !important;
           }
           
           .hero .project-card h3 {
-            font-size: 1.1rem !important;
+            font-size: 1.2rem !important;
             margin-bottom: 1.5rem !important;
-            text-align: center !important;
+            text-align: left !important;
+            color: #fff !important;
           }
           
           .hero .project-card p {
-            font-size: 0.85rem !important;
-            line-height: 1.4 !important;
-            margin-bottom: 1.2rem !important;
+            font-size: 0.9rem !important;
+            line-height: 1.5 !important;
+            margin-bottom: 1.5rem !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 300 !important;
           }
           
           .hero .project-card .project-role {
-            font-size: 0.7rem !important;
-            text-align: center !important;
+            font-size: 0.8rem !important;
+            text-align: left !important;
+            color: rgba(255, 255, 255, 0.6) !important;
+            font-weight: 400 !important;
+            border-top: none !important;
+            padding-top: 0 !important;
+            margin-top: 0.5rem !important;
+            opacity: 1 !important;
+          }
+          
+          /* CONTACT CONTENT - DIREKT AUF SEITE */
+          .hero .contact-content {
+            background: none !important;
+            backdrop-filter: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 2rem 0 !important;
+            margin: 2rem auto !important;
+            max-width: 100% !important;
+            max-height: none !important;
+            overflow-y: visible !important;
+          }
+          
+          .hero .contact-content p {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            margin-bottom: 1rem !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 300 !important;
+            text-align: left !important;
+          }
+          
+          .hero .contact-content strong {
+            color: rgba(255, 255, 255, 0.95) !important;
+            font-weight: 500 !important;
           }
         }
-        
+
         /* Extra kleine Smartphones */
         @media (max-width: 480px) {
           .hero {
@@ -252,7 +322,7 @@
           }
           
           .hero-content {
-            max-width: 80% !important;
+            max-width: 95% !important;
           }
           
           .hero h1 {
@@ -271,6 +341,16 @@
             font-size: 0.85rem !important;
             padding: 0.6rem 0.8rem !important;
             width: 75% !important;
+          }
+          
+          .hero .about-content p,
+          .hero .project-card p,
+          .hero .contact-content p {
+            font-size: 0.85rem !important;
+          }
+          
+          .hero .project-card h3 {
+            font-size: 1.1rem !important;
           }
         }
     </style>
@@ -306,10 +386,7 @@
           Sein Schaffen bewegt sich an der Schnittstelle von Technologie, Business und Psychologie mit dem Ziel, Systeme zu entwickeln, die nicht nur effizient funktionieren, sondern kulturell und menschlich wirken.
         </p>
         <p>
-          Als kreatives Herz von CONNECTA+ arbeitet er an einer Plattform, die die gezielte Vernetzung von Kreativen, Unternehmer:innen und Institutionen neu denkt strukturiert, visuell stark und strategisch intelligent.
-        </p>
-        <p>
-          Parallel dazu formt er mit AGENT-7 ein Framework für KI-basierte SaaS und SaaL Lösungen. Die Vision: Architekturen bauen, die automatisieren, skalieren und echte Probleme lösen, von der API bis zur Nutzererfahrung.
+          Er formt mit AGENT-7 ein Framework für KI-basierte SaaS und SaaL Lösungen. Die Vision: Architekturen bauen, die automatisieren, skalieren und echte Probleme lösen, von der API bis zur Nutzererfahrung.
         </p>
         <p>
           Neben seinen digitalen Projekten prägt ihn auch die kulturelle Arbeit im physischen Raum.  
